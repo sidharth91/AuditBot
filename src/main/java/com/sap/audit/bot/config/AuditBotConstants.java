@@ -13,7 +13,8 @@
      TABLE6("Risk Id", "ZTYPE", 6, "ZRESULT"),
      TABLE7("Mitigation", "ZTYPE", 7, "ZRESULT"),
 	 TABLE8("Report Type", "ZTYPE", 8, "ZRESULT"),
-	 TABLE9("Drill Down", "ZTYPE", 9, "ZRESULT");;
+	 TABLE9("Drill Down", "ZTYPE", 9, "ZRESULT"),
+	 TABLE51("COLORS", "ZTYPE", 51, "ZRESULT");;
 	 
      
      private String tableNamealias;

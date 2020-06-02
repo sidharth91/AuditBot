@@ -12,9 +12,12 @@
    private List<String> riskId;
    private String mitigation;
    private String reportType;
+   private String drillDown;
+   private String userInput;
+   
    private List<Integer> breakDown;
-   private List<String> risk;
-   private String userIput;
+
+
 
 
    
@@ -60,18 +63,14 @@
    public void setBreakDown(List<Integer> breakDown) {
      this.breakDown = breakDown;
    }
-   public List<String> getRisk() {
-     return this.risk;
-   }
-   public void setRisk(List<String> risk) {
-     this.risk = risk;
-   }
-   public String getUserIput() {
-     return this.userIput;
-   }
-   public void setUserIput(String userIput) {
-     this.userIput = userIput;
-   }
+
+
+public String getUserInput() {
+	return userInput;
+}
+public void setUserInput(String userInput) {
+	this.userInput = userInput;
+}
 public List<String> getRiskId() {
 	return riskId;
 }
@@ -90,7 +89,15 @@ public String getReportType() {
 public void setReportType(String reportType) {
 	this.reportType = reportType;
 }
+public String getDrillDown() {
+	return drillDown;
+}
+public void setDrillDown(String drillDown) {
+	this.drillDown = drillDown;
+}
    
+
+
    
  }
 

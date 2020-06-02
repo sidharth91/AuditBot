@@ -174,7 +174,7 @@ public class FunctionDaoImpl
       function.getImportParameterList().setValue("I_CLT", data.getClient()); 
     if (!StringUtils.isEmpty(Integer.valueOf(data.getLevel()))) {
       function.getImportParameterList().setValue("I_LEVEL", data.getLevel());
-      if (!StringUtils.isEmpty(data.getUserIput())) {
+      if (!StringUtils.isEmpty(data.getUserInput())) {
         JCoTable userinput = null;
         if (data.getLevel() == 1) {
           userinput = function.getTableParameterList().getTable("I_USER");
@@ -182,11 +182,17 @@ public class FunctionDaoImpl
           userinput = function.getTableParameterList().getTable("I_ROLE");
         } 
         userinput.appendRow();
-        userinput.setValue("ZFIELD", data.getUserIput());
+        userinput.setValue("ZFIELD", data.getUserInput());
       } 
     } 
 
-
+    if (!StringUtils.isEmpty(data.getMitigation())) {
+	      function.getImportParameterList().setValue("I_MIT", data.getMitigation());
+	    } 
+    
+    if (!StringUtils.isEmpty(data.getDrillDown())) {
+	      function.getImportParameterList().setValue("I_DRILL", data.getDrillDown());
+	    } 
 
 
 
@@ -218,9 +224,9 @@ public class FunctionDaoImpl
       } 
     } 
     
-    if (data.getRisk() != null && data.getRisk().size() > 0) {
+    if (data.getRiskId() != null && data.getRiskId().size() > 0) {
       JCoTable busTable = function.getTableParameterList().getTable("I_RISK");
-      for (String risk : data.getRisk()) {
+      for (String risk : data.getRiskId()) {
         busTable.appendRow();
         busTable.setValue("ZFIELD", risk);
       } 
