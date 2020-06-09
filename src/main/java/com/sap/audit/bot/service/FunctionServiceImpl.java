@@ -2,7 +2,8 @@
  
  import com.sap.audit.bot.config.AuditBotConstants;
  import com.sap.audit.bot.dao.FunctionDao;
- import com.sap.audit.bot.helper.SapObjectToJavaConversion;
+import com.sap.audit.bot.exception.AuditBotAuthenticationException;
+import com.sap.audit.bot.helper.SapObjectToJavaConversion;
  import com.sap.audit.bot.model.FilterData;
  import com.sap.audit.bot.model.JwtUser;
  import com.sap.audit.bot.model.ReportDTO;
@@ -98,7 +99,7 @@
  
  
    
-   public ReportDTO getRiskDetailReport(JwtUser jwtUser, String system, String client, String level, String riskType, String risklevel, String appclass, String risk, String user, String role) throws JCoException {
+   public ReportDTO getRiskDetailReport(JwtUser jwtUser, String system, String client, String level, String riskType, String risklevel, String appclass, String risk, String user, String role) throws JCoException, AuditBotAuthenticationException {
      Map<String, JCoTable> table = this.functionDao.getTableByFunctionModule(jwtUser, "/BOT/JAVA_0003N", system, client, level, riskType, risklevel, appclass, risk, user, role);
      List<Map<String, Object>> list = SapObjectToJavaConversion.getTableParameter(table.get("data"));
      List<Object> header = (List<Object>)SapObjectToJavaConversion.getTableParameter(table.get("header")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
@@ -110,7 +111,7 @@
  
  
    
-   public ReportDTO getGRCReport(JwtUser loginUser, FilterData data) throws JCoException {
+   public ReportDTO getGRCReport(JwtUser loginUser, FilterData data) throws JCoException, AuditBotAuthenticationException {
      Map<String, JCoTable> table = this.functionDao.getGRCTableByFunctionModule(loginUser, "/BOT/JAVA_0003N", data);
      List<Map<String, Object>> list = SapObjectToJavaConversion.getTableParameter(table.get("data"));
      List<Object> header = (List<Object>)SapObjectToJavaConversion.getTableParameter(table.get("header")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());

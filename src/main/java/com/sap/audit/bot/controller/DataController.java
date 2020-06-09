@@ -1,6 +1,7 @@
  package com.sap.audit.bot.controller;
  
- import com.sap.audit.bot.model.FilterData;
+ import com.sap.audit.bot.exception.AuditBotAuthenticationException;
+import com.sap.audit.bot.model.FilterData;
  import com.sap.audit.bot.model.JwtUser;
  import com.sap.audit.bot.model.ReportDTO;
  import com.sap.audit.bot.security.JwtValidator;
@@ -82,7 +83,7 @@ import java.util.List;
    
    @GetMapping({"/JAVA_0003"})
    @CrossOrigin
-   public ReportDTO getUserRiskReport(@RequestHeader("Authorisation") String authorisation, @RequestParam(value = "system", required = false) String system, @RequestParam(value = "client", required = false) String client, @RequestParam(value = "level", required = false) String level, @RequestParam(value = "risktype", required = false) String riskType, @RequestParam(value = "risklevel", required = false) String risklevel, @RequestParam(value = "appclass", required = false) String appclass, @RequestParam(value = "risk", required = false) String risk, @RequestParam(value = "user", required = false) String user, @RequestParam(value = "role", required = false) String role) throws JCoException {
+   public ReportDTO getUserRiskReport(@RequestHeader("Authorisation") String authorisation, @RequestParam(value = "system", required = false) String system, @RequestParam(value = "client", required = false) String client, @RequestParam(value = "level", required = false) String level, @RequestParam(value = "risktype", required = false) String riskType, @RequestParam(value = "risklevel", required = false) String risklevel, @RequestParam(value = "appclass", required = false) String appclass, @RequestParam(value = "risk", required = false) String risk, @RequestParam(value = "user", required = false) String user, @RequestParam(value = "role", required = false) String role) throws JCoException, AuditBotAuthenticationException {
      JwtUser loginUser = this.jwtValidator.validate(authorisation);
      ReportDTO filter = this.functionService.getRiskDetailReport(loginUser, system, client, level, riskType, risklevel, appclass, risk, user, role);
      return filter;
@@ -94,7 +95,7 @@ import java.util.List;
    
    @PostMapping({"/JAVA_MUL_0003"})
    @CrossOrigin
-   public ReportDTO getUserRiskReport(@RequestHeader("Authorisation") String authorisation, @RequestBody FilterData data) throws JCoException {
+   public ReportDTO getUserRiskReport(@RequestHeader("Authorisation") String authorisation, @RequestBody FilterData data) throws JCoException, AuditBotAuthenticationException {
      JwtUser loginUser = this.jwtValidator.validate(authorisation);
      ReportDTO filter = this.functionService.getGRCReport(loginUser, data);
      return filter;

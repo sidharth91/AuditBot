@@ -1,5 +1,6 @@
 package com.sap.audit.bot.dao;
 
+import com.sap.audit.bot.exception.AuditBotAuthenticationException;
 import com.sap.audit.bot.model.FilterData;
 import com.sap.audit.bot.model.JwtUser;
 import com.sap.conn.jco.AbapException;
@@ -106,9 +107,12 @@ public class FunctionDaoImpl
 
 
   
-  public Map<String, JCoTable> getTableByFunctionModule(JwtUser jwtUser, String functionName, String system, String client, String level, String riskType, String risklevel, String appclass, String risk, String user, String role) throws JCoException {
+  public Map<String, JCoTable> getTableByFunctionModule(JwtUser jwtUser, String functionName, String system, String client, String level, String riskType, String risklevel, String appclass, String risk, String user, String role) throws JCoException, AuditBotAuthenticationException {
     Map<String, JCoTable> map = new LinkedHashMap<>();
     JCoDestination destination = this.destinationSource.getDestinationByUser(jwtUser);
+    if(destination==null) {
+    	throw new AuditBotAuthenticationException("no destination object found for the use please login again", "no destination object found for the use please login again");
+    }
     JCoRepository repo = destination.getRepository();
     JCoFunction function = repo.getFunction(functionName);
     if (function == null)
@@ -161,9 +165,12 @@ public class FunctionDaoImpl
   }
 
   
-  public Map<String, JCoTable> getGRCTableByFunctionModule(JwtUser loginUser, String functionName, FilterData data) throws JCoException {
+  public Map<String, JCoTable> getGRCTableByFunctionModule(JwtUser loginUser, String functionName, FilterData data) throws JCoException, AuditBotAuthenticationException {
     Map<String, JCoTable> map = new LinkedHashMap<>();
     JCoDestination destination = this.destinationSource.getDestinationByUser(loginUser);
+    if(destination==null) {
+    	throw new AuditBotAuthenticationException("no destination object found for the use please login again", "no destination object found for the use please login again");
+    }
     JCoRepository repo = destination.getRepository();
     JCoFunction function = repo.getFunction(functionName);
     if (function == null)
