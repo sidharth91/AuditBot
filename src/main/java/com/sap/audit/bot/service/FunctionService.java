@@ -11,13 +11,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface FunctionService {
-  List<Map<String, Object>> getFilterTableData(JwtUser paramJwtUser);
+  List<Map<String, Object>> getFilterTableData(JwtUser paramJwtUser) ;
   
   List<Map<String, Object>> getFilterResultTableData(JwtUser paramJwtUser, FilterData paramFilterData) throws JCoException;
   
-  ReportDTO getRiskDetailReport(JwtUser jwtUser, String system, String client, String level, String riskType, String risklevel, String appclass, String risk, String user, String role) throws JCoException, AuditBotAuthenticationException;
+  ReportDTO getRiskDetailReport(JwtUser jwtUser, String system, String client, String level, String riskType, String risklevel, String appclass, String risk, String user, String role) throws JCoException;
   
-  ReportDTO getGRCReport(JwtUser paramJwtUser, FilterData paramFilterData) throws JCoException, AuditBotAuthenticationException;
+  ReportDTO getGRCReport(JwtUser paramJwtUser, FilterData paramFilterData) throws JCoException ;
   
   
   Map<String,List<Map<String, Object>>> getFilterResultTableDataMultiple(JwtUser paramJwtUser, FilterData paramFilterData) throws JCoException;

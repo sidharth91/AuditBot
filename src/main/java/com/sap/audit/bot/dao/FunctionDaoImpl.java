@@ -107,12 +107,9 @@ public class FunctionDaoImpl
 
 
   
-  public Map<String, JCoTable> getTableByFunctionModule(JwtUser jwtUser, String functionName, String system, String client, String level, String riskType, String risklevel, String appclass, String risk, String user, String role) throws JCoException, AuditBotAuthenticationException {
+  public Map<String, JCoTable> getTableByFunctionModule(JwtUser jwtUser, String functionName, String system, String client, String level, String riskType, String risklevel, String appclass, String risk, String user, String role) throws JCoException {
     Map<String, JCoTable> map = new LinkedHashMap<>();
     JCoDestination destination = this.destinationSource.getDestinationByUser(jwtUser);
-    if(destination==null) {
-    	throw new AuditBotAuthenticationException("no destination object found for the use please login again", "no destination object found for the use please login again");
-    }
     JCoRepository repo = destination.getRepository();
     JCoFunction function = repo.getFunction(functionName);
     if (function == null)
@@ -165,12 +162,9 @@ public class FunctionDaoImpl
   }
 
   
-  public Map<String, JCoTable> getGRCTableByFunctionModule(JwtUser loginUser, String functionName, FilterData data) throws JCoException, AuditBotAuthenticationException {
+  public Map<String, JCoTable> getGRCTableByFunctionModule(JwtUser loginUser, String functionName, FilterData data) throws JCoException {
     Map<String, JCoTable> map = new LinkedHashMap<>();
     JCoDestination destination = this.destinationSource.getDestinationByUser(loginUser);
-    if(destination==null) {
-    	throw new AuditBotAuthenticationException("no destination object found for the use please login again", "no destination object found for the use please login again");
-    }
     JCoRepository repo = destination.getRepository();
     JCoFunction function = repo.getFunction(functionName);
     if (function == null)

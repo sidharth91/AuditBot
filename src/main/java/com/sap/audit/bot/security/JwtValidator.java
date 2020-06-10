@@ -2,18 +2,26 @@ package com.sap.audit.bot.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.sap.audit.bot.dao.DestinationSource;
+import com.sap.audit.bot.exception.AuditBotAuthenticationException;
 import com.sap.audit.bot.model.JwtUser;
 
 @Component
 public class JwtValidator {
+	
+
 
 
     private String secret = "auditbot";
 
-    public JwtUser validate(String token) {
+    public JwtUser validate(String token)  {
 
+    	
+    	
         JwtUser jwtUser = null;
         try {
             Claims body = Jwts.parser()
@@ -32,6 +40,8 @@ public class JwtValidator {
         catch (Exception e) {
             System.out.println(e);
         }
+        
+
 
         return jwtUser;
     }
