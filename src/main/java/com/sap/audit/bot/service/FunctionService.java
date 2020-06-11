@@ -3,6 +3,7 @@ package com.sap.audit.bot.service;
 import com.sap.audit.bot.exception.AuditBotAuthenticationException;
 import com.sap.audit.bot.model.FilterData;
 import com.sap.audit.bot.model.JwtUser;
+import com.sap.audit.bot.model.LicenceFilterDTO;
 import com.sap.audit.bot.model.ReportDTO;
 import com.sap.conn.jco.JCoException;
 import java.util.List;
@@ -21,5 +22,10 @@ public interface FunctionService {
   
   
   Map<String,List<Map<String, Object>>> getFilterResultTableDataMultiple(JwtUser paramJwtUser, FilterData paramFilterData) throws JCoException;
+  
+  
+  Map<String,List<Map<String, Object>>> getLicenceFilterResultTableDataMultiple(JwtUser paramJwtUser, LicenceFilterDTO paramFilterData) throws JCoException;
+  
+  List<Map<String, Object>> gelicensetFilterTableData(JwtUser paramJwtUser) ;
 }
 

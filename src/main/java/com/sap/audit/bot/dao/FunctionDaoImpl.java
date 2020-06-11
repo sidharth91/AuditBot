@@ -3,6 +3,7 @@ package com.sap.audit.bot.dao;
 import com.sap.audit.bot.exception.AuditBotAuthenticationException;
 import com.sap.audit.bot.model.FilterData;
 import com.sap.audit.bot.model.JwtUser;
+import com.sap.audit.bot.model.LicenceFilterDTO;
 import com.sap.conn.jco.AbapException;
 import com.sap.conn.jco.JCoDestination;
 import com.sap.conn.jco.JCoException;
@@ -10,6 +11,8 @@ import com.sap.conn.jco.JCoFunction;
 import com.sap.conn.jco.JCoRepository;
 import com.sap.conn.jco.JCoTable;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -332,4 +335,113 @@ public Map<String,JCoTable> getTableByFunctionModuleMultiple(JwtUser user, Strin
 	    tables.put("E_RESULT_03",table3);
 	    return tables;
 }
+
+
+@Override
+public Map<String, JCoTable> getLicenceTableByFunctionModuleMultiple(JwtUser user, String functionName,
+		LicenceFilterDTO data) throws JCoException {
+	JCoDestination destination = this.destinationSource.getDestinationByUser(user);
+    JCoRepository repo = destination.getRepository();
+    JCoFunction function = repo.getFunction(functionName);
+    if (function == null)
+      throw new RuntimeException(functionName + "not found in SAP."); 
+    
+    if (!StringUtils.isEmpty(data.getLevel()))
+      function.getImportParameterList().setValue("I_LEVEL", data.getLevel()); 
+    
+    if (!StringUtils.isEmpty(data.getActiveUser()))
+      function.getImportParameterList().setValue("I_ACT", data.getActiveUser()); 
+    
+
+    
+      function.getImportParameterList().setValue("I_DATE1", data.getStartDate().toString().replace("-",""));
+      
+
+      function.getImportParameterList().setValue("I_DATE2", data.getEndDate().toString().replace("-",""));
+      
+      if (!StringUtils.isEmpty(data.getTcodes()))
+          function.getImportParameterList().setValue("I_TCODE", data.getTcodes()); 
+      
+      if (!StringUtils.isEmpty(data.getCriteria()))
+          function.getImportParameterList().setValue("I_CRITERIA", data.getCriteria()); 
+      
+      if (!StringUtils.isEmpty(data.getLogondays()))
+          function.getImportParameterList().setValue("I_DAYS", data.getLogondays()); 
+      
+      if (!StringUtils.isEmpty(data.getCount()))
+          function.getImportParameterList().setValue("I_COUNT", data.getCount()); 
+    
+      
+      if (!StringUtils.isEmpty(data.getSapSystem())) {
+    	  JCoTable system = function.getTableParameterList().getTable("I_SYS");
+    	  system.appendRow();
+    	  system.setValue("ZFIELD", data.getSapSystem());
+      }
+      
+      if (!StringUtils.isEmpty(data.getClient())) {
+    	  JCoTable client = function.getTableParameterList().getTable("I_CLT");
+    	  client.appendRow();
+    	  client.setValue("ZFIELD", data.getClient());
+      }
+      
+      if (!StringUtils.isEmpty(data.getUserType())) {
+    	  JCoTable type = function.getTableParameterList().getTable("I_TYPE");
+    	  type.appendRow();
+    	  type.setValue("ZFIELD", data.getUserType());
+      }
+      
+      if (!StringUtils.isEmpty(data.getUserGroup())) {
+    	  JCoTable grp = function.getTableParameterList().getTable("I_GROUP");
+    	  grp.appendRow();
+    	  grp.setValue("ZFIELD", data.getUserGroup());
+      }
+      
+      if (!StringUtils.isEmpty(data.getAccount())) {
+    	  JCoTable account = function.getTableParameterList().getTable("I_ACCNT");
+    	  account.appendRow();
+    	  account.setValue("ZFIELD", data.getAccount());
+      }
+      
+      if (!StringUtils.isEmpty(data.getLicenseType())) {
+    	  JCoTable lic = function.getTableParameterList().getTable("I_LIC");
+    	  lic.appendRow();
+    	  lic.setValue("ZFIELD", data.getLicenseType());
+      }
+      
+      
+      if (!StringUtils.isEmpty(data.getUserStatus())) {
+    	  JCoTable status = function.getTableParameterList().getTable("I_STATUS");
+    	  status.appendRow();
+    	  status.setValue("ZFIELD", data.getUserStatus());
+      }
+      
+      if (!StringUtils.isEmpty(data.getUserId())) {
+    	  JCoTable userid = function.getTableParameterList().getTable("I_USER");
+    	  userid.appendRow();
+    	  userid.setValue("ZFIELD", data.getUserId());
+      }
+      
+
+    
+    try {
+      function.execute(destination);
+    }
+    catch (AbapException e) {
+      
+      throw new RuntimeException("not able to execute function");
+    } 
+    Map<String,JCoTable> tables=new HashMap<String, JCoTable>();
+    
+    JCoTable table1 = function.getTableParameterList().getTable("E_RESULT_01");
+    tables.put("E_RESULT_01",table1);
+    JCoTable table2 = function.getTableParameterList().getTable("E_RESULT_02");
+    tables.put("E_RESULT_02",table2);
+    JCoTable table3 = function.getTableParameterList().getTable("E_RESULT_03");
+    tables.put("E_RESULT_03",table3);
+    JCoTable table4 = function.getTableParameterList().getTable("E_RESULT_04");
+    tables.put("E_RESULT_04",table4);
+    return tables;
+}
+
+
 }

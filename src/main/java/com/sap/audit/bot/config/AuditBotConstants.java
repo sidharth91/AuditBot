@@ -45,6 +45,51 @@
        return this.valueString;
      }
    }
+   
+   
+   public enum LicenseFilterTableMapping {
+	     TABLE1("SAP System", "ZTYPE", 1, "ZRESULT"),
+	     TABLE2("Client", "ZTYPE", 2, "ZRESULT"),
+	     TABLE11("Level", "ZTYPE", 11, "ZRESULT"),
+	     TABLE12("User Type", "ZTYPE", 12, "ZRESULT"),
+	     TABLE13("User Group", "ZTYPE", 13, "ZRESULT"),
+	     TABLE14("Account", "ZTYPE", 14, "ZRESULT"),
+	     TABLE15("License Type", "ZTYPE", 15, "ZRESULT"),
+		 TABLE16("User Status", "ZTYPE", 16, "ZRESULT"),
+		 TABLE17("Active User", "ZTYPE", 17, "ZRESULT"),
+		 TABLE18("TCodes", "ZTYPE", 18, "ZRESULT"),
+		 TABLE19("Criteria", "ZTYPE", 19, "ZRESULT"),
+		 TABLE51("COLORS", "ZTYPE", 51, "ZRESULT");
+		 
+	     
+	     private String tableNamealias;
+	     private String valueString;
+	     private int tableNum;
+	     private String tableName;
+	     
+	     LicenseFilterTableMapping(String tableNamealias, String valueString, int tableNum, String tableName) {
+	       this.tableName = tableName;
+	       this.tableNum = tableNum;
+	       this.tableNamealias = tableNamealias;
+	       this.valueString = valueString;
+	     }
+	     
+	     public String getTableName() {
+	       return this.tableName;
+	     }
+	     
+	     public int getTableNum() {
+	       return this.tableNum;
+	     }
+	     
+	     public String getTableNamealias() {
+	       return this.tableNamealias;
+	     }
+	     
+	     public String getValueString() {
+	       return this.valueString;
+	     }
+	   }
  }
 
 

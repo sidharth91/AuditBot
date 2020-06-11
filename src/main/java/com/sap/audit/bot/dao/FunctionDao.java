@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import com.sap.audit.bot.exception.AuditBotAuthenticationException;
 import com.sap.audit.bot.model.FilterData;
 import com.sap.audit.bot.model.JwtUser;
+import com.sap.audit.bot.model.LicenceFilterDTO;
 import com.sap.conn.jco.JCoException;
 import com.sap.conn.jco.JCoTable;
 
@@ -22,4 +23,6 @@ public interface FunctionDao {
   Map<String, JCoTable> getGRCTableByFunctionModule(JwtUser paramJwtUser, String paramString, FilterData paramFilterData) throws JCoException;
   
   Map<String,JCoTable> getTableByFunctionModuleMultiple(JwtUser paramJwtUser, String paramString, FilterData paramFilterData) throws JCoException;
+
+Map<String, JCoTable> getLicenceTableByFunctionModuleMultiple(JwtUser jwtUser, String paramString,LicenceFilterDTO paramFilterData) throws JCoException;
 }

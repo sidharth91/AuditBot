@@ -1,22 +1,24 @@
  package com.sap.audit.bot.service;
  
- import com.sap.audit.bot.config.AuditBotConstants;
- import com.sap.audit.bot.dao.FunctionDao;
-import com.sap.audit.bot.exception.AuditBotAuthenticationException;
-import com.sap.audit.bot.helper.SapObjectToJavaConversion;
- import com.sap.audit.bot.model.FilterData;
- import com.sap.audit.bot.model.JwtUser;
- import com.sap.audit.bot.model.ReportDTO;
- import com.sap.conn.jco.JCoException;
- import com.sap.conn.jco.JCoTable;
  import java.util.ArrayList;
- import java.util.Arrays;
- import java.util.HashMap;
- import java.util.List;
- import java.util.Map;
- import java.util.stream.Collectors;
- import org.springframework.beans.factory.annotation.Autowired;
- import org.springframework.stereotype.Component;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.sap.audit.bot.config.AuditBotConstants;
+import com.sap.audit.bot.dao.FunctionDao;
+import com.sap.audit.bot.helper.SapObjectToJavaConversion;
+import com.sap.audit.bot.model.FilterData;
+import com.sap.audit.bot.model.JwtUser;
+import com.sap.audit.bot.model.LicenceFilterDTO;
+import com.sap.audit.bot.model.ReportDTO;
+import com.sap.conn.jco.JCoException;
+import com.sap.conn.jco.JCoTable;
  
  
  
@@ -48,27 +50,29 @@ import com.sap.audit.bot.helper.SapObjectToJavaConversion;
              e.printStackTrace();
            } 
          });
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-     
+
      return filters;
    }
+   
+   
+   public List<Map<String, Object>> gelicensetFilterTableData(JwtUser user) {
+	     List<Map<String, Object>> filters = new ArrayList<>();
+	     Arrays.<AuditBotConstants.LicenseFilterTableMapping>asList(AuditBotConstants.LicenseFilterTableMapping.values()).forEach(param -> {
+	           try {
+	             JCoTable table = this.functionDao.getTableByFunctionModule(user, "/BOT/JAVA_0001", param.getValueString(), param.getTableNum(), param.getTableName());
+	             List<Map<String, Object>> list = SapObjectToJavaConversion.getTableParameter(table);
+	             Map<String, Object> map = new HashMap<>();
+	             map.put("name", param.getTableNamealias());
+	             map.put("value", list);
+	             map.put("id", Integer.valueOf(param.getTableNum()));
+	             filters.add(map);
+	           } catch (JCoException e) {
+	             e.printStackTrace();
+	           } 
+	         });
+
+	     return filters;
+	   }
  
  
    
@@ -120,4 +124,21 @@ import com.sap.audit.bot.helper.SapObjectToJavaConversion;
      dto.setHeader(header);
      return dto;
    }
- }
+
+
+@Override
+public Map<String, List<Map<String, Object>>> getLicenceFilterResultTableDataMultiple(JwtUser jwtUser,
+		LicenceFilterDTO paramFilterData) throws JCoException {
+  	 Map<String,JCoTable> tables = this.functionDao.getLicenceTableByFunctionModuleMultiple(jwtUser, "/BOT/JAVA_0005", paramFilterData);
+   	 
+  	 Map<String,List<Map<String, Object>>> tableMap=new HashMap<String, List<Map<String,Object>>>();
+  	 
+  	 tables.forEach((k,v)->{
+  		tableMap.put(k,  SapObjectToJavaConversion.getTableParameter(v));
+  	 });
+  	 
+   
+    return tableMap;
+  }
+}
+ 
