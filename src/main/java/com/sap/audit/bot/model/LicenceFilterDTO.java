@@ -2,16 +2,17 @@ package com.sap.audit.bot.model;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 public class LicenceFilterDTO {
-	  private String sapSystem;
-	  private String client;
+	  private List<String> sapSystem;
+	  private List<String> client;
 	   private String level;
-	    private String userType;
-	    private String userGroup;
-	    private String account;
-	    private String licenseType;
-	    private String userStatus;
+	    private List<String> userType;
+	    private List<String> userGroup;
+	    private List<String> account;
+	    private List<String> licenseType;
+	    private List<String> userStatus;
 	    private String activeUser;
 	    private String tcodes;
 	    private String criteria;
@@ -20,53 +21,14 @@ public class LicenceFilterDTO {
 	    private String logondays;
 	    private LocalDate startDate;
 	    private LocalDate endDate;
-		public String getSapSystem() {
-			return sapSystem;
-		}
-		public void setSapSystem(String sapSystem) {
-			this.sapSystem = sapSystem;
-		}
-		public String getClient() {
-			return client;
-		}
-		public void setClient(String client) {
-			this.client = client;
-		}
+	    
+	    
+
 		public String getLevel() {
 			return level;
 		}
 		public void setLevel(String level) {
 			this.level = level;
-		}
-		public String getUserType() {
-			return userType;
-		}
-		public void setUserType(String userType) {
-			this.userType = userType;
-		}
-		public String getUserGroup() {
-			return userGroup;
-		}
-		public void setUserGroup(String userGroup) {
-			this.userGroup = userGroup;
-		}
-		public String getAccount() {
-			return account;
-		}
-		public void setAccount(String account) {
-			this.account = account;
-		}
-		public String getLicenseType() {
-			return licenseType;
-		}
-		public void setLicenseType(String licenseType) {
-			this.licenseType = licenseType;
-		}
-		public String getUserStatus() {
-			return userStatus;
-		}
-		public void setUserStatus(String userStatus) {
-			this.userStatus = userStatus;
 		}
 		public String getActiveUser() {
 			return activeUser;
@@ -74,6 +36,57 @@ public class LicenceFilterDTO {
 		public void setActiveUser(String activeUser) {
 			this.activeUser = activeUser;
 		}
+	
+		public String getUserId() {
+			return userId;
+		}
+		public void setUserId(String userId) {
+			this.userId = userId;
+		}
+		public List<String> getSapSystem() {
+			return sapSystem;
+		}
+		public void setSapSystem(List<String> sapSystem) {
+			this.sapSystem = sapSystem;
+		}
+		public List<String> getClient() {
+			return client;
+		}
+		public void setClient(List<String> client) {
+			this.client = client;
+		}
+
+		public List<String> getUserType() {
+			return userType;
+		}
+		public void setUserType(List<String> userType) {
+			this.userType = userType;
+		}
+		public List<String> getUserGroup() {
+			return userGroup;
+		}
+		public void setUserGroup(List<String> userGroup) {
+			this.userGroup = userGroup;
+		}
+		public List<String> getAccount() {
+			return account;
+		}
+		public void setAccount(List<String> account) {
+			this.account = account;
+		}
+		public List<String> getLicenseType() {
+			return licenseType;
+		}
+		public void setLicenseType(List<String> licenseType) {
+			this.licenseType = licenseType;
+		}
+		public List<String> getUserStatus() {
+			return userStatus;
+		}
+		public void setUserStatus(List<String> userStatus) {
+			this.userStatus = userStatus;
+		}
+
 		public String getTcodes() {
 			return tcodes;
 		}
@@ -86,12 +99,7 @@ public class LicenceFilterDTO {
 		public void setCriteria(String criteria) {
 			this.criteria = criteria;
 		}
-		public String getUserId() {
-			return userId;
-		}
-		public void setUserId(String userId) {
-			this.userId = userId;
-		}
+	
 		public String getCount() {
 			return count;
 		}
@@ -117,8 +125,5 @@ public class LicenceFilterDTO {
 			this.endDate = endDate;
 		}
 
-
-	    
-	    
 
 }

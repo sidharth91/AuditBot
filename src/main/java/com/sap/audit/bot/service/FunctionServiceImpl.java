@@ -140,5 +140,38 @@ public Map<String, List<Map<String, Object>>> getLicenceFilterResultTableDataMul
    
     return tableMap;
   }
+
+
+@Override
+public ReportDTO getLicenceReport(JwtUser loginUser, LicenceFilterDTO data) throws JCoException {
+    Map<String, JCoTable> table = this.functionDao.getLicenceTableByFunctionModule(loginUser, "/BOT/JAVA_0006", data);
+    List<Map<String, Object>> list = SapObjectToJavaConversion.getTableParameterForLicence(table.get("data"));
+    List<Object> header = (List<Object>)SapObjectToJavaConversion.getTableParameterForLicence(table.get("header")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
+    ReportDTO dto = new ReportDTO();
+    dto.setData(list);
+    dto.setHeader(header);
+    return dto;
+}
+
+
+@Override
+public List<Map<String, Object>> getSidebarTableData(JwtUser user) {
+    List<Map<String, Object>> filters = new ArrayList<>();
+    Arrays.<AuditBotConstants.AuthorizationMapping>asList(AuditBotConstants.AuthorizationMapping.values()).forEach(param -> {
+          try {
+            JCoTable table = this.functionDao.getTableByFunctionModule(user, "/BOT/JAVA_0001", param.getValueString(), param.getTableNum(), param.getTableName());
+            List<Map<String, Object>> list = SapObjectToJavaConversion.getTableParameter(table);
+            Map<String, Object> map = new HashMap<>();
+            map.put("name", param.getTableNamealias());
+            map.put("value", list);
+            map.put("id", Integer.valueOf(param.getTableNum()));
+            filters.add(map);
+          } catch (JCoException e) {
+            e.printStackTrace();
+          } 
+        });
+
+    return filters;
+}
 }
  

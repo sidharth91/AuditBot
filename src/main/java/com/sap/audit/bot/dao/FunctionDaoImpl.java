@@ -374,45 +374,59 @@ public Map<String, JCoTable> getLicenceTableByFunctionModuleMultiple(JwtUser use
       
       if (!StringUtils.isEmpty(data.getSapSystem())) {
     	  JCoTable system = function.getTableParameterList().getTable("I_SYS");
+    	  for (String s : data.getSapSystem()) {
     	  system.appendRow();
-    	  system.setValue("ZFIELD", data.getSapSystem());
+    	  system.setValue("ZFIELD", s);
+    	  }
       }
       
       if (!StringUtils.isEmpty(data.getClient())) {
     	  JCoTable client = function.getTableParameterList().getTable("I_CLT");
+    	  for (String s : data.getClient()) {
     	  client.appendRow();
-    	  client.setValue("ZFIELD", data.getClient());
+    	  client.setValue("ZFIELD", s);
+    	  }
       }
       
       if (!StringUtils.isEmpty(data.getUserType())) {
     	  JCoTable type = function.getTableParameterList().getTable("I_TYPE");
+    	  for (String s : data.getUserType()) {
     	  type.appendRow();
-    	  type.setValue("ZFIELD", data.getUserType());
+    	  type.setValue("ZFIELD", s);
+    	  }
       }
       
       if (!StringUtils.isEmpty(data.getUserGroup())) {
     	  JCoTable grp = function.getTableParameterList().getTable("I_GROUP");
+    	  for (String s : data.getUserGroup()) {
     	  grp.appendRow();
-    	  grp.setValue("ZFIELD", data.getUserGroup());
+    	  grp.setValue("ZFIELD", s);
+    	  }
       }
       
       if (!StringUtils.isEmpty(data.getAccount())) {
     	  JCoTable account = function.getTableParameterList().getTable("I_ACCNT");
+    	  for (String s : data.getAccount()) {
     	  account.appendRow();
-    	  account.setValue("ZFIELD", data.getAccount());
+    	  account.setValue("ZFIELD", s);
+    	  }
       }
       
       if (!StringUtils.isEmpty(data.getLicenseType())) {
     	  JCoTable lic = function.getTableParameterList().getTable("I_LIC");
+    	  for (String s : data.getLicenseType()) {
     	  lic.appendRow();
-    	  lic.setValue("ZFIELD", data.getLicenseType());
+    	  lic.setValue("ZFIELD", s);
+    	  }
       }
       
       
       if (!StringUtils.isEmpty(data.getUserStatus())) {
     	  JCoTable status = function.getTableParameterList().getTable("I_STATUS");
+    	  for (String s : data.getUserStatus()) {
     	  status.appendRow();
-    	  status.setValue("ZFIELD", data.getUserStatus());
+    	  status.setValue("ZFIELD", s);
+    	  }
       }
       
       if (!StringUtils.isEmpty(data.getUserId())) {
@@ -441,6 +455,127 @@ public Map<String, JCoTable> getLicenceTableByFunctionModuleMultiple(JwtUser use
     JCoTable table4 = function.getTableParameterList().getTable("E_RESULT_04");
     tables.put("E_RESULT_04",table4);
     return tables;
+}
+
+
+@Override
+public Map<String, JCoTable> getLicenceTableByFunctionModule(JwtUser jwtUser, String functionName, LicenceFilterDTO data)
+		throws JCoException {
+    Map<String, JCoTable> map = new LinkedHashMap<>();
+    JCoDestination destination = this.destinationSource.getDestinationByUser(jwtUser);
+    JCoRepository repo = destination.getRepository();
+    JCoFunction function = repo.getFunction(functionName);
+    if (function == null)
+        throw new RuntimeException(functionName + "not found in SAP."); 
+      
+      if (!StringUtils.isEmpty(data.getLevel()))
+        function.getImportParameterList().setValue("I_LEVEL", data.getLevel()); 
+      
+      if (!StringUtils.isEmpty(data.getActiveUser()))
+        function.getImportParameterList().setValue("I_ACT", data.getActiveUser()); 
+      
+
+      
+        function.getImportParameterList().setValue("I_DATE1", data.getStartDate().toString().replace("-",""));
+        
+
+        function.getImportParameterList().setValue("I_DATE2", data.getEndDate().toString().replace("-",""));
+        
+        if (!StringUtils.isEmpty(data.getTcodes()))
+            function.getImportParameterList().setValue("I_TCODE", data.getTcodes()); 
+        
+        if (!StringUtils.isEmpty(data.getCriteria()))
+            function.getImportParameterList().setValue("I_CRITERIA", data.getCriteria()); 
+        
+        if (!StringUtils.isEmpty(data.getLogondays()))
+            function.getImportParameterList().setValue("I_DAYS", data.getLogondays()); 
+        
+        if (!StringUtils.isEmpty(data.getCount()))
+            function.getImportParameterList().setValue("I_COUNT", data.getCount()); 
+      
+        
+        
+        if (!StringUtils.isEmpty(data.getSapSystem())) {
+      	  JCoTable system = function.getTableParameterList().getTable("I_SYS");
+      	  for (String s : data.getSapSystem()) {
+      	  system.appendRow();
+      	  system.setValue("ZFIELD", s);
+      	  }
+        }
+        
+        if (!StringUtils.isEmpty(data.getClient())) {
+      	  JCoTable client = function.getTableParameterList().getTable("I_CLT");
+      	  for (String s : data.getClient()) {
+      	  client.appendRow();
+      	  client.setValue("ZFIELD", s);
+      	  }
+        }
+        
+        if (!StringUtils.isEmpty(data.getUserType())) {
+      	  JCoTable type = function.getTableParameterList().getTable("I_TYPE");
+      	  for (String s : data.getUserType()) {
+      	  type.appendRow();
+      	  type.setValue("ZFIELD", s);
+      	  }
+        }
+        
+        if (!StringUtils.isEmpty(data.getUserGroup())) {
+      	  JCoTable grp = function.getTableParameterList().getTable("I_GROUP");
+      	  for (String s : data.getUserGroup()) {
+      	  grp.appendRow();
+      	  grp.setValue("ZFIELD", s);
+      	  }
+        }
+        
+        if (!StringUtils.isEmpty(data.getAccount())) {
+      	  JCoTable account = function.getTableParameterList().getTable("I_ACCNT");
+      	  for (String s : data.getAccount()) {
+      	  account.appendRow();
+      	  account.setValue("ZFIELD", s);
+      	  }
+        }
+        
+        if (!StringUtils.isEmpty(data.getLicenseType())) {
+      	  JCoTable lic = function.getTableParameterList().getTable("I_LIC");
+      	  for (String s : data.getLicenseType()) {
+      	  lic.appendRow();
+      	  lic.setValue("ZFIELD", s);
+      	  }
+        }
+        
+        
+        if (!StringUtils.isEmpty(data.getUserStatus())) {
+      	  JCoTable status = function.getTableParameterList().getTable("I_STATUS");
+      	  for (String s : data.getUserStatus()) {
+      	  status.appendRow();
+      	  status.setValue("ZFIELD", s);
+      	  }
+        }
+        
+        if (!StringUtils.isEmpty(data.getUserId())) {
+      	  JCoTable userid = function.getTableParameterList().getTable("I_USER");
+      	  userid.appendRow();
+      	  userid.setValue("ZFIELD", data.getUserId());
+        }
+        
+        
+
+      
+      try {
+        function.execute(destination);
+      }
+      catch (AbapException e) {
+        
+        throw new RuntimeException("not able to execute function");
+      } 
+    
+		map.put("header", function.getTableParameterList().getTable("E_HEADER"));
+
+		JCoTable table = function.getTableParameterList().getTable("E_RESULT_01");
+		map.put("data", table);
+
+    
+    return map;
 }
 
 

@@ -27,5 +27,9 @@ public interface FunctionService {
   Map<String,List<Map<String, Object>>> getLicenceFilterResultTableDataMultiple(JwtUser paramJwtUser, LicenceFilterDTO paramFilterData) throws JCoException;
   
   List<Map<String, Object>> gelicensetFilterTableData(JwtUser paramJwtUser) ;
+
+ReportDTO getLicenceReport(JwtUser loginUser, LicenceFilterDTO data)throws JCoException ;
+
+List<Map<String, Object>> getSidebarTableData(JwtUser user);
 }
 

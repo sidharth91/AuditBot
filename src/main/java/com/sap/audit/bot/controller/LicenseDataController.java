@@ -74,4 +74,16 @@ public class LicenseDataController {
 	     return results;
 	   }
 	   
+	   
+	   @PostMapping({"/JAVA_0006"})
+	   @CrossOrigin
+	   public ReportDTO getUserRiskReport(@RequestHeader("Authorisation") String authorisation, @RequestBody LicenceFilterDTO data) throws JCoException, AuditBotAuthenticationException {
+	     JwtUser loginUser = this.jwtValidator.validate(authorisation);
+	     if(destinationSource.getDestinationByUser(loginUser)==null) {
+	    	 throw new AuditBotAuthenticationException("Authentication failed","Authentication failed");
+	      }
+	     ReportDTO filter = this.functionService.getLicenceReport(loginUser, data);
+	     return filter;
+	   }
+	   
 }

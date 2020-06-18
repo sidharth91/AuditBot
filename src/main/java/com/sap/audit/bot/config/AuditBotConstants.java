@@ -90,6 +90,40 @@
 	       return this.valueString;
 	     }
 	   }
+   
+   public enum AuthorizationMapping {
+	     TABLE20("Authorization", "ZTYPE", 20, "ZRESULT");
+	    
+		 
+	     
+	     private String tableNamealias;
+	     private String valueString;
+	     private int tableNum;
+	     private String tableName;
+	     
+	     AuthorizationMapping(String tableNamealias, String valueString, int tableNum, String tableName) {
+	       this.tableName = tableName;
+	       this.tableNum = tableNum;
+	       this.tableNamealias = tableNamealias;
+	       this.valueString = valueString;
+	     }
+	     
+	     public String getTableName() {
+	       return this.tableName;
+	     }
+	     
+	     public int getTableNum() {
+	       return this.tableNum;
+	     }
+	     
+	     public String getTableNamealias() {
+	       return this.tableNamealias;
+	     }
+	     
+	     public String getValueString() {
+	       return this.valueString;
+	     }
+	   } 
  }
 
 
