@@ -14,7 +14,8 @@
      TABLE7("Mitigation", "ZTYPE", 7, "ZRESULT"),
 	 TABLE8("Report Type", "ZTYPE", 8, "ZRESULT"),
 	 TABLE9("Drill Down", "ZTYPE", 9, "ZRESULT"),
-	 TABLE51("COLORS", "ZTYPE", 51, "ZRESULT");;
+	 TABLE10("Report View", "ZTYPE", 10, "ZRESULT"),
+	 TABLE51("COLORS", "ZTYPE", 51, "ZRESULT");
 	 
      
      private String tableNamealias;

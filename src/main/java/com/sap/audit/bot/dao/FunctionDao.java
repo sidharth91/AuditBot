@@ -27,4 +27,6 @@ public interface FunctionDao {
 Map<String, JCoTable> getLicenceTableByFunctionModuleMultiple(JwtUser jwtUser, String paramString,LicenceFilterDTO paramFilterData) throws JCoException;
 
 Map<String, JCoTable> getLicenceTableByFunctionModule(JwtUser loginUser, String string, LicenceFilterDTO data)throws JCoException;
+
+Map<String, JCoTable> getGRCRiskTechTableByFunctionModule(JwtUser loginUser, String string, FilterData data)throws JCoException;
 }

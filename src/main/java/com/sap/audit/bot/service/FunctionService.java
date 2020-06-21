@@ -31,5 +31,7 @@ public interface FunctionService {
 ReportDTO getLicenceReport(JwtUser loginUser, LicenceFilterDTO data)throws JCoException ;
 
 List<Map<String, Object>> getSidebarTableData(JwtUser user);
+
+ReportDTO getGRCRiskTechReport(JwtUser loginUser, FilterData data) throws JCoException ;
 }
 

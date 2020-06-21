@@ -579,4 +579,116 @@ public Map<String, JCoTable> getLicenceTableByFunctionModule(JwtUser jwtUser, St
 }
 
 
+@Override
+public Map<String, JCoTable> getGRCRiskTechTableByFunctionModule(JwtUser loginUser, String functionName, FilterData data)
+		throws JCoException {
+	 Map<String, JCoTable> map = new LinkedHashMap<>();
+	    JCoDestination destination = this.destinationSource.getDestinationByUser(loginUser);
+	    JCoRepository repo = destination.getRepository();
+	    JCoFunction function = repo.getFunction(functionName);
+	    if (function == null)
+	      throw new RuntimeException(functionName + "not found in SAP."); 
+	    if (!StringUtils.isEmpty(data.getSapSystem()))
+	      function.getImportParameterList().setValue("I_SYS", data.getSapSystem()); 
+	    if (!StringUtils.isEmpty(data.getClient()))
+	      function.getImportParameterList().setValue("I_CLT", data.getClient()); 
+	    if (!StringUtils.isEmpty(Integer.valueOf(data.getLevel()))) {
+	      function.getImportParameterList().setValue("I_LEVEL", data.getLevel());
+	      if (!StringUtils.isEmpty(data.getUserInput())) {
+	        JCoTable userinput = null;
+	        if (data.getLevel() == 1) {
+	          userinput = function.getTableParameterList().getTable("I_USER");
+	        } else {
+	          userinput = function.getTableParameterList().getTable("I_ROLE");
+	        } 
+	        userinput.appendRow();
+	        userinput.setValue("ZFIELD", data.getUserInput());
+	      } 
+	    } 
+
+
+
+	    
+	    if (data.getRiskType() != null && data.getRiskType().size() > 0) {
+	      JCoTable risktype = function.getTableParameterList().getTable("I_RISKTYPE");
+	      for (String riskType : data.getRiskType()) {
+	        risktype.appendRow();
+	        risktype.setValue("ZFIELD", riskType);
+	      } 
+	    } 
+	    
+	    if (data.getRiskType() != null && data.getRiskLevel().size() > 0) {
+	      JCoTable risklevel = function.getTableParameterList().getTable("I_RISKLEVEL");
+	      for (String riskLevel : data.getRiskLevel()) {
+	        risklevel.appendRow();
+	        risklevel.setValue("ZFIELD", riskLevel);
+	      } 
+	    } 
+	    
+	    if (data.getRiskType() != null && data.getBusinessModule().size() > 0) {
+	      JCoTable busTable = function.getTableParameterList().getTable("I_APPCLASS");
+	      for (String busMod : data.getBusinessModule()) {
+	        busTable.appendRow();
+	        busTable.setValue("ZFIELD", busMod);
+	      } 
+	    } 
+	    
+	    if (data.getRiskId() != null && data.getRiskId().size() > 0) {
+	      JCoTable busTable = function.getTableParameterList().getTable("I_RISK");
+	      for (String risk : data.getRiskId()) {
+	        busTable.appendRow();
+	        busTable.setValue("ZFIELD", risk);
+	      } 
+	    } 
+	    
+        if(!StringUtils.isEmpty(data.getReportView())) {
+	        
+        	 function.getImportParameterList().setValue("I_VIEW", data.getReportView());
+        }
+
+	    
+
+	    
+	    try {
+	      function.execute(destination);
+	    }
+	    catch (AbapException e) {
+	      
+	      throw new RuntimeException("not able to execute function");
+	    } 
+	    map.put("header", function.getTableParameterList().getTable("E_HEADER"));
+	    
+	    
+	  
+	    
+	    
+	    if (data.getLevel() == 1) {
+	 
+	      	if(Integer.parseInt(data.getReportView())==2 && data.getRiskType().size() > 0 && data.getRiskType().contains("G")) {
+	      		 JCoTable table = function.getTableParameterList().getTable("E_RESULT_05");
+   		      map.put("data", table);
+	    	}else if(Integer.parseInt(data.getReportView())==2){
+	    		 JCoTable table = function.getTableParameterList().getTable("E_RESULT_02");
+	   		      map.put("data", table);
+	    	}else {
+	    		  JCoTable table = function.getTableParameterList().getTable("E_RESULT_01");
+    		      map.put("data", table);
+	    	}
+	    } else {
+	    	if(Integer.parseInt(data.getReportView())==2 && data.getRiskType().size() > 0 && data.getRiskType().contains("G")) {
+	      		 JCoTable table = function.getTableParameterList().getTable("E_RESULT_06");
+  		      map.put("data", table);
+	    	}else if(Integer.parseInt(data.getReportView())==2){
+	    		 JCoTable table = function.getTableParameterList().getTable("E_RESULT_04");
+	   		      map.put("data", table);
+	    	}else {
+	    		  JCoTable table = function.getTableParameterList().getTable("E_RESULT_03");
+   		      map.put("data", table);
+	    	}
+	    } 
+	    
+	    return map;
+}
+
+
 }

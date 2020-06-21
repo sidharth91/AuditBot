@@ -120,6 +120,18 @@ import java.util.List;
      ReportDTO filter = this.functionService.getGRCReport(loginUser, data);
      return filter;
    }
+   
+   
+   @PostMapping({"/JAVA_MUL_0004"})
+   @CrossOrigin
+   public ReportDTO getUserRiskTechReport(@RequestHeader("Authorisation") String authorisation, @RequestBody FilterData data) throws JCoException, AuditBotAuthenticationException {
+     JwtUser loginUser = this.jwtValidator.validate(authorisation);
+     if(destinationSource.getDestinationByUser(loginUser)==null) {
+    	 throw new AuditBotAuthenticationException("Authentication failed","Authentication failed");
+      }
+     ReportDTO filter = this.functionService.getGRCRiskTechReport(loginUser, data);
+     return filter;
+   }
  }
 
 

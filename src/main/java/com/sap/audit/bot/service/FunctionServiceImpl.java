@@ -173,5 +173,17 @@ public List<Map<String, Object>> getSidebarTableData(JwtUser user) {
 
     return filters;
 }
+
+
+@Override
+public ReportDTO getGRCRiskTechReport(JwtUser loginUser, FilterData data) throws JCoException {
+    Map<String, JCoTable> table = this.functionDao.getGRCRiskTechTableByFunctionModule(loginUser, "/BOT/JAVA_0004", data);
+    List<Map<String, Object>> list = SapObjectToJavaConversion.getTableParameter(table.get("data"));
+    List<Object> header = (List<Object>)SapObjectToJavaConversion.getTableParameter(table.get("header")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
+    ReportDTO dto = new ReportDTO();
+    dto.setData(list);
+    dto.setHeader(header);
+    return dto;
+}
 }
  
