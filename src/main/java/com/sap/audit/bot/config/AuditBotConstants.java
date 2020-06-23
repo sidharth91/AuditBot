@@ -124,7 +124,46 @@
 	     public String getValueString() {
 	       return this.valueString;
 	     }
-	   } 
+	   }
+   
+   
+   public enum ControlsFilterTableMapping {
+	     TABLE1("SAP System", "ZTYPE", 1, "ZRESULT"),
+	     TABLE2("Client", "ZTYPE", 2, "ZRESULT"),
+	     TABLE7("Mitigation", "ZTYPE", 7, "ZRESULT"),
+		 TABLE9("Drill Down", "ZTYPE", 9, "ZRESULT"),
+		 TABLE21("Controls", "ZTYPE", 21, "ZRESULT"),
+		 TABLE51("COLORS", "ZTYPE", 51, "ZRESULT");
+		 
+	     
+	     private String tableNamealias;
+	     private String valueString;
+	     private int tableNum;
+	     private String tableName;
+	     
+	     ControlsFilterTableMapping(String tableNamealias, String valueString, int tableNum, String tableName) {
+	       this.tableName = tableName;
+	       this.tableNum = tableNum;
+	       this.tableNamealias = tableNamealias;
+	       this.valueString = valueString;
+	     }
+	     
+	     public String getTableName() {
+	       return this.tableName;
+	     }
+	     
+	     public int getTableNum() {
+	       return this.tableNum;
+	     }
+	     
+	     public String getTableNamealias() {
+	       return this.tableNamealias;
+	     }
+	     
+	     public String getValueString() {
+	       return this.valueString;
+	     }
+	   }
  }
 
 

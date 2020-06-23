@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.stereotype.Component;
 
 import com.sap.audit.bot.exception.AuditBotAuthenticationException;
+import com.sap.audit.bot.model.ControlFilterDTO;
 import com.sap.audit.bot.model.FilterData;
 import com.sap.audit.bot.model.JwtUser;
 import com.sap.audit.bot.model.LicenceFilterDTO;
@@ -29,4 +30,8 @@ Map<String, JCoTable> getLicenceTableByFunctionModuleMultiple(JwtUser jwtUser, S
 Map<String, JCoTable> getLicenceTableByFunctionModule(JwtUser loginUser, String string, LicenceFilterDTO data)throws JCoException;
 
 Map<String, JCoTable> getGRCRiskTechTableByFunctionModule(JwtUser loginUser, String string, FilterData data)throws JCoException;
+
+Map<String, JCoTable> getControlByFunctionModuleMultiple(JwtUser jwtUser, String paramString,ControlFilterDTO paramFilterData) throws JCoException;
+
+Map<String, JCoTable> getControlTableByFunctionModule(JwtUser loginUser, String string, ControlFilterDTO data)throws JCoException;
 }

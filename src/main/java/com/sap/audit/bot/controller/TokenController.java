@@ -59,7 +59,7 @@ public class TokenController
   @PostMapping
   @CrossOrigin
   public AuthDTO generate(@RequestBody JwtUser jwtUser) throws Exception {
-    createProperties(jwtUser.getUserName(), jwtUser.getPassword(), jwtUser.getHost(), jwtUser.getSystem(), jwtUser.getClient());
+    createProperties(jwtUser.getUserName(), jwtUser.getPassword(), jwtUser.getHost(), jwtUser.getSystem(), jwtUser.getClient(),jwtUser.getInstance());
     try {
       JCoDestination destination = JCoDestinationManager.getDestination(DESTINATION_NAME1);
       destination.getAttributes();
@@ -88,10 +88,10 @@ public class TokenController
   }
 
   
-  private void createProperties(String username, String password, String host, String system, String client) {
+  private void createProperties(String username, String password, String host, String system, String client,String instance) {
     Properties connectProperties = new Properties();
     connectProperties.setProperty("jco.client.ashost", host);
-    connectProperties.setProperty("jco.client.sysnr", this.destinationConfig.getJCO_SYSNR());
+    connectProperties.setProperty("jco.client.sysnr", instance);
     connectProperties.setProperty("jco.client.client", client);
     connectProperties.setProperty("jco.client.user", username);
     connectProperties.setProperty("jco.client.passwd", password);
@@ -125,7 +125,7 @@ public class TokenController
       br.readLine();
       while ((line = br.readLine()) != null) {
         String[] splits = line.split(",");
-        LoginDefaultData data = new LoginDefaultData(splits[2], splits[0], splits[1], splits[3]);
+        LoginDefaultData data = new LoginDefaultData(splits[2], splits[0], splits[1], splits[3],splits[4]);
         List<LoginDefaultData> list = new ArrayList<>();
         if (map.containsKey(splits[0])) {
           list = map.get(splits[0]);

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import com.sap.audit.bot.config.AuditBotConstants;
 import com.sap.audit.bot.dao.FunctionDao;
 import com.sap.audit.bot.helper.SapObjectToJavaConversion;
+import com.sap.audit.bot.model.ControlFilterDTO;
 import com.sap.audit.bot.model.FilterData;
 import com.sap.audit.bot.model.JwtUser;
 import com.sap.audit.bot.model.LicenceFilterDTO;
@@ -183,6 +184,57 @@ public ReportDTO getGRCRiskTechReport(JwtUser loginUser, FilterData data) throws
     ReportDTO dto = new ReportDTO();
     dto.setData(list);
     dto.setHeader(header);
+    return dto;
+}
+
+
+@Override
+public List<Map<String, Object>> getControlsFilterTableData(JwtUser paramJwtUser) {
+    List<Map<String, Object>> filters = new ArrayList<>();
+    Arrays.<AuditBotConstants.ControlsFilterTableMapping>asList(AuditBotConstants.ControlsFilterTableMapping.values()).forEach(param -> {
+          try {
+            JCoTable table = this.functionDao.getTableByFunctionModule(paramJwtUser, "/BOT/JAVA_0001", param.getValueString(), param.getTableNum(), param.getTableName());
+            List<Map<String, Object>> list = SapObjectToJavaConversion.getTableParameter(table);
+            Map<String, Object> map = new HashMap<>();
+            map.put("name", param.getTableNamealias());
+            map.put("value", list);
+            map.put("id", Integer.valueOf(param.getTableNum()));
+            filters.add(map);
+          } catch (JCoException e) {
+            e.printStackTrace();
+          } 
+        });
+
+    return filters;
+}
+
+
+@Override
+public Map<String, List<Map<String, Object>>> getControlFilterResultTableDataMultiple(JwtUser jwtUser,
+		ControlFilterDTO paramFilterData) throws JCoException {
+ 	 Map<String,JCoTable> tables = this.functionDao.getControlByFunctionModuleMultiple(jwtUser, "/BOT/JAVA_0007", paramFilterData);
+   	 
+ 	 Map<String,List<Map<String, Object>>> tableMap=new HashMap<String, List<Map<String,Object>>>();
+ 	 
+ 	 tables.forEach((k,v)->{
+ 		tableMap.put(k,  SapObjectToJavaConversion.getTableParameter(v));
+ 	 });
+ 	 
+  
+   return tableMap;
+}
+
+
+@Override
+public ReportDTO getControlReport(JwtUser loginUser, ControlFilterDTO data) throws JCoException {
+    Map<String, JCoTable> table = this.functionDao.getControlTableByFunctionModule(loginUser, "/BOT/JAVA_0009", data);
+    List<Map<String, Object>> list = SapObjectToJavaConversion.getTableParameter(table.get("data"));
+    List<Object> header = (List<Object>)SapObjectToJavaConversion.getTableParameterForLicence(table.get("header")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
+    List<Object> reportName = (List<Object>)SapObjectToJavaConversion.getTableParameterForLicence(table.get("E_REPORT")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
+    ReportDTO dto = new ReportDTO();
+    dto.setData(list);
+    dto.setHeader(header);
+    dto.setReportName(reportName);
     return dto;
 }
 }

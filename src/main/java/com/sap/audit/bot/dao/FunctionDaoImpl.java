@@ -1,6 +1,7 @@
 package com.sap.audit.bot.dao;
 
 import com.sap.audit.bot.exception.AuditBotAuthenticationException;
+import com.sap.audit.bot.model.ControlFilterDTO;
 import com.sap.audit.bot.model.FilterData;
 import com.sap.audit.bot.model.JwtUser;
 import com.sap.audit.bot.model.LicenceFilterDTO;
@@ -688,6 +689,86 @@ public Map<String, JCoTable> getGRCRiskTechTableByFunctionModule(JwtUser loginUs
 	    } 
 	    
 	    return map;
+}
+
+
+@Override
+public Map<String, JCoTable> getControlByFunctionModuleMultiple(JwtUser user, String functionName,
+		ControlFilterDTO data) throws JCoException {
+	JCoDestination destination = this.destinationSource.getDestinationByUser(user);
+    JCoRepository repo = destination.getRepository();
+    JCoFunction function = repo.getFunction(functionName);
+    if (function == null)
+      throw new RuntimeException(functionName + "not found in SAP."); 
+    
+		if (!StringUtils.isEmpty(data.getSapSystem()))
+			function.getImportParameterList().setValue("I_SYS", data.getSapSystem());
+		if (!StringUtils.isEmpty(data.getClient()))
+			function.getImportParameterList().setValue("I_CLT", data.getClient());
+    
+
+   
+      
+      if (!StringUtils.isEmpty(data.getControls())) {
+    	  JCoTable system = function.getTableParameterList().getTable("I_RECNO");
+    	  for (String s : data.getControls()) {
+    	  system.appendRow();
+    	  system.setValue("ZFIELD", s);
+    	  }
+      }
+     
+    
+    try {
+      function.execute(destination);
+    }
+    catch (AbapException e) {
+      
+      throw new RuntimeException("not able to execute function");
+    } 
+    Map<String,JCoTable> tables=new HashMap<String, JCoTable>();
+    
+    JCoTable table1 = function.getTableParameterList().getTable("E_RESULT_01");
+    tables.put("E_RESULT_01",table1);
+    JCoTable table2 = function.getTableParameterList().getTable("E_RESULT_02");
+    tables.put("E_RESULT_02",table2);
+
+    return tables;
+}
+
+
+@Override
+public Map<String, JCoTable> getControlTableByFunctionModule(JwtUser user, String functionName, ControlFilterDTO data)
+		throws JCoException {
+	JCoDestination destination = this.destinationSource.getDestinationByUser(user);
+    JCoRepository repo = destination.getRepository();
+    JCoFunction function = repo.getFunction(functionName);
+    if (function == null)
+      throw new RuntimeException(functionName + "not found in SAP."); 
+    
+		if (!StringUtils.isEmpty(data.getSapSystem()))
+			function.getImportParameterList().setValue("I_SYS", data.getSapSystem());
+		if (!StringUtils.isEmpty(data.getClient()))
+			function.getImportParameterList().setValue("I_CLT", data.getClient());
+		if (!StringUtils.isEmpty(data.getControl()))
+			function.getImportParameterList().setValue("I_RECNO", data.getControl());
+    
+
+    
+    try {
+      function.execute(destination);
+    }
+    catch (AbapException e) {
+      
+      throw new RuntimeException("not able to execute function");
+    } 
+    Map<String,JCoTable> tables=new HashMap<String, JCoTable>();
+    tables.put("header", function.getTableParameterList().getTable("E_HEADER"));
+    JCoTable table1 = function.getTableParameterList().getTable("E_RESULT_01");
+    tables.put("data",table1);
+    JCoTable table2 = function.getTableParameterList().getTable("E_REPORT");
+    tables.put("E_REPORT",table2);
+
+    return tables;
 }
 
 
