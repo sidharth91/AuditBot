@@ -39,5 +39,7 @@ ReportDTO getGRCRiskTechReport(JwtUser loginUser, FilterData data) throws JCoExc
 List<Map<String, Object>> getControlsFilterTableData(JwtUser paramJwtUser) ;
 Map<String,List<Map<String, Object>>> getControlFilterResultTableDataMultiple(JwtUser paramJwtUser, ControlFilterDTO paramFilterData) throws JCoException;
 ReportDTO getControlReport(JwtUser loginUser, ControlFilterDTO data)throws JCoException ;
+
+ReportDTO getSummaryControlReport(JwtUser loginUser, ControlFilterDTO data)throws JCoException ;
 }
 

@@ -34,4 +34,6 @@ Map<String, JCoTable> getGRCRiskTechTableByFunctionModule(JwtUser loginUser, Str
 Map<String, JCoTable> getControlByFunctionModuleMultiple(JwtUser jwtUser, String paramString,ControlFilterDTO paramFilterData) throws JCoException;
 
 Map<String, JCoTable> getControlTableByFunctionModule(JwtUser loginUser, String string, ControlFilterDTO data)throws JCoException;
+
+Map<String, JCoTable> getControlSummaryTableByFunctionModule(JwtUser loginUser, String string, ControlFilterDTO data)throws JCoException;
 }

@@ -229,12 +229,26 @@ public Map<String, List<Map<String, Object>>> getControlFilterResultTableDataMul
 public ReportDTO getControlReport(JwtUser loginUser, ControlFilterDTO data) throws JCoException {
     Map<String, JCoTable> table = this.functionDao.getControlTableByFunctionModule(loginUser, "/BOT/JAVA_0009", data);
     List<Map<String, Object>> list = SapObjectToJavaConversion.getTableParameter(table.get("data"));
-    List<Object> header = (List<Object>)SapObjectToJavaConversion.getTableParameterForLicence(table.get("header")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
-    List<Object> reportName = (List<Object>)SapObjectToJavaConversion.getTableParameterForLicence(table.get("E_REPORT")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
+    List<Object> header = (List<Object>)SapObjectToJavaConversion.getTableParameter(table.get("header")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
+    List<Object> reportName = (List<Object>)SapObjectToJavaConversion.getTableParameter(table.get("E_REPORT")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
     ReportDTO dto = new ReportDTO();
     dto.setData(list);
     dto.setHeader(header);
     dto.setReportName(reportName);
+    return dto;
+}
+
+
+@Override
+public ReportDTO getSummaryControlReport(JwtUser loginUser, ControlFilterDTO data) throws JCoException {
+    Map<String, JCoTable> table = this.functionDao.getControlSummaryTableByFunctionModule(loginUser, "/BOT/JAVA_0008", data);
+    List<Map<String, Object>> list = SapObjectToJavaConversion.getTableParameter(table.get("data"));
+    List<Object> header = (List<Object>)SapObjectToJavaConversion.getTableParameter(table.get("header")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
+   // List<Object> reportName = (List<Object>)SapObjectToJavaConversion.getTableParameter(table.get("E_REPORT")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
+    ReportDTO dto = new ReportDTO();
+    dto.setData(list);
+    dto.setHeader(header);
+   // dto.setReportName(reportName);
     return dto;
 }
 }

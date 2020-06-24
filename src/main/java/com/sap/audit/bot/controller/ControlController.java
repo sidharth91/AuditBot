@@ -86,6 +86,16 @@ public class ControlController {
 	     ReportDTO filter = this.functionService.getControlReport(loginUser, data);
 	     return filter;
 	   }
-	   
+
+	   @PostMapping({"/JAVA_0008"})
+	   @CrossOrigin
+	   public ReportDTO getUserSummaryControlReport(@RequestHeader("Authorisation") String authorisation, @RequestBody ControlFilterDTO data) throws JCoException, AuditBotAuthenticationException {
+	     JwtUser loginUser = this.jwtValidator.validate(authorisation);
+	     if(destinationSource.getDestinationByUser(loginUser)==null) {
+	    	 throw new AuditBotAuthenticationException("Authentication failed","Authentication failed");
+	      }
+	     ReportDTO filter = this.functionService.getSummaryControlReport(loginUser, data);
+	     return filter;
+	   }
 
 }
