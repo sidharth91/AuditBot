@@ -688,13 +688,9 @@ public class FunctionDaoImpl implements FunctionDao {
 			function.getImportParameterList().setValue("I_SYS", data.getSapSystem());
 		if (!StringUtils.isEmpty(data.getClient()))
 			function.getImportParameterList().setValue("I_CLT", data.getClient());
-		if (!StringUtils.isEmpty(data.getControls())) {
-			JCoTable system = function.getTableParameterList().getTable("I_RECNO");
-			for (String s : data.getControls()) {
-				system.appendRow();
-				system.setValue("ZFIELD", s);
-			}
-		}
+		if (!StringUtils.isEmpty(data.getControl()))
+			function.getImportParameterList().setValue("I_RECNO", data.getControl());
+
 		try {
 			function.execute(destination);
 		} catch (AbapException e) {
@@ -726,8 +722,13 @@ public class FunctionDaoImpl implements FunctionDao {
 			function.getImportParameterList().setValue("I_SYS", data.getSapSystem());
 		if (!StringUtils.isEmpty(data.getClient()))
 			function.getImportParameterList().setValue("I_CLT", data.getClient());
-		if (!StringUtils.isEmpty(data.getControl()))
-			function.getImportParameterList().setValue("I_RECNO", data.getControl());
+		if (!StringUtils.isEmpty(data.getControls())) {
+			JCoTable system = function.getTableParameterList().getTable("I_RECNO");
+			for (String s : data.getControls()) {
+				system.appendRow();
+				system.setValue("ZFIELD", s);
+			}
+		}
 
 		try {
 			function.execute(destination);
