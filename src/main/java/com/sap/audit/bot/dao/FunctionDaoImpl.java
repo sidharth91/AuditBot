@@ -423,6 +423,9 @@ public class FunctionDaoImpl implements FunctionDao {
 		tables.put("E_RESULT_03", table3);
 		JCoTable table4 = function.getTableParameterList().getTable("E_RESULT_04");
 		tables.put("E_RESULT_04", table4);
+		JCoTable table5 = function.getTableParameterList().getTable("E_RESULT_00");
+		tables.put("E_RESULT_00", table5);
+		tables.put("header", function.getTableParameterList().getTable("E_HEADER"));
 		return tables;
 	}
 
