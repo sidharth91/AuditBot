@@ -9,6 +9,7 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import com.sap.audit.bot.dao.DestinationSource;
 import com.sap.audit.bot.model.JwtUser;
 import com.sap.audit.bot.model.JwtUserDetails;
 import com.sap.audit.bot.security.JwtAuthenticationToken;
@@ -20,6 +21,9 @@ public class JwtAuthenticationProvider extends AbstractUserDetailsAuthentication
 
     @Autowired
     private JwtValidator validator;
+    
+	  @Autowired
+	  private DestinationSource destinationSource;
 
     @Override
     protected void additionalAuthenticationChecks(UserDetails userDetails, UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken) throws AuthenticationException {
@@ -37,6 +41,9 @@ public class JwtAuthenticationProvider extends AbstractUserDetailsAuthentication
         if (jwtUser == null) {
             throw new RuntimeException("JWT Token is incorrect");
         }
+        
+      
+        
 
         List<GrantedAuthority> grantedAuthorities = AuthorityUtils
                 .commaSeparatedStringToAuthorityList(jwtUser.getUserName());

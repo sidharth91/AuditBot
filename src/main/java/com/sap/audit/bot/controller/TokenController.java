@@ -7,8 +7,12 @@ import com.sap.audit.bot.model.AuthDTO;
 import com.sap.audit.bot.model.JwtUser;
 import com.sap.audit.bot.model.LoginDefaultData;
 import com.sap.audit.bot.security.JwtGenerator;
+import com.sap.audit.bot.security.JwtValidator;
+import com.sap.audit.bot.service.FunctionService;
 import com.sap.conn.jco.JCoDestination;
 import com.sap.conn.jco.JCoDestinationManager;
+import com.sap.conn.jco.JCoException;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -24,6 +28,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,12 +49,17 @@ public class TokenController
   @Autowired
   private DestinationConfig destinationConfig;
   static String DESTINATION_NAME1 = "ABAP_AS_WITHOUT_POOL";
-
+  @Autowired
+  private JwtValidator jwtValidator;
+  
+  @Autowired
+  private FunctionService functionService;
+  
   
   @PostMapping
   @CrossOrigin
   public AuthDTO generate(@RequestBody JwtUser jwtUser) throws Exception {
-    createProperties(jwtUser.getUserName(), jwtUser.getPassword(), jwtUser.getHost(), jwtUser.getSystem(), jwtUser.getClient());
+    createProperties(jwtUser.getUserName(), jwtUser.getPassword(), jwtUser.getHost(), jwtUser.getSystem(), jwtUser.getClient(),jwtUser.getInstance());
     try {
       JCoDestination destination = JCoDestinationManager.getDestination(DESTINATION_NAME1);
       destination.getAttributes();
@@ -66,12 +76,22 @@ public class TokenController
     } 
   }
 
+  @GetMapping({"/authorization"})
+  @CrossOrigin
+  public Map<String, Object> getAttributes(@RequestHeader("Authorisation") String authorisation) throws JCoException, AuditBotAuthenticationException {
+    JwtUser user = this.jwtValidator.validate(authorisation);
+    if(destinationSource.getDestinationByUser(user)==null) {
+   	 throw new AuditBotAuthenticationException("Authentication failed","Authentication failed");
+    }
+    List<Map<String, Object>> filter = this.functionService.getSidebarTableData(user);
+    return filter.get(0);
+  }
 
   
-  private void createProperties(String username, String password, String host, String system, String client) {
+  private void createProperties(String username, String password, String host, String system, String client,String instance) {
     Properties connectProperties = new Properties();
     connectProperties.setProperty("jco.client.ashost", host);
-    connectProperties.setProperty("jco.client.sysnr", this.destinationConfig.getJCO_SYSNR());
+    connectProperties.setProperty("jco.client.sysnr", instance);
     connectProperties.setProperty("jco.client.client", client);
     connectProperties.setProperty("jco.client.user", username);
     connectProperties.setProperty("jco.client.passwd", password);
@@ -105,7 +125,7 @@ public class TokenController
       br.readLine();
       while ((line = br.readLine()) != null) {
         String[] splits = line.split(",");
-        LoginDefaultData data = new LoginDefaultData(splits[2], splits[0], splits[1], splits[3]);
+        LoginDefaultData data = new LoginDefaultData(splits[2], splits[0], splits[1], splits[3],splits[4]);
         List<LoginDefaultData> list = new ArrayList<>();
         if (map.containsKey(splits[0])) {
           list = map.get(splits[0]);
