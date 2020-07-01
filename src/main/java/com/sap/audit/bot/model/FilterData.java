@@ -14,6 +14,7 @@
    private String reportType;
    private String drillDown;
    private String userInput;
+   private String reportView;
    
    private List<Integer> breakDown;
 
@@ -94,6 +95,12 @@ public String getDrillDown() {
 }
 public void setDrillDown(String drillDown) {
 	this.drillDown = drillDown;
+}
+public String getReportView() {
+	return reportView;
+}
+public void setReportView(String reportView) {
+	this.reportView = reportView;
 }
    
 

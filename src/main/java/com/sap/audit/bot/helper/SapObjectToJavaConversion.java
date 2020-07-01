@@ -28,5 +28,23 @@
      } 
      return list;
    }
+   
+   
+   public static List<Map<String, Object>>  getTableParameterForLicence(JCoTable table) {
+	     List<Map<String, Object>> list = new ArrayList<>();
+	     for (int i = 0; i < table.getNumRows(); i++) {
+	       
+	       table.setRow(i);
+	       JCoFieldIterator iter = table.getFieldIterator();
+	       Map<String, Object> map = new LinkedHashMap<>();
+	       while (iter.hasNextField()) {
+	         
+	         JCoField f = iter.nextField();
+	         map.put(f.getName(), table.getString(f.getName()));
+	       } 
+	       list.add(map);
+	     } 
+	     return list;
+	   }
  }
 

@@ -7,12 +7,14 @@
    private String sysId;
    private String sysDesc;
    private String ipAddress;
+   private String instanse;
    
-   public LoginDefaultData(String client, String sysId, String sysDesc, String ipAddress) {
+   public LoginDefaultData(String client, String sysId, String sysDesc, String ipAddress,String instanse) {
      this.client = client;
      this.sysId = sysId;
      this.sysDesc = sysDesc;
      this.ipAddress = ipAddress;
+     this.instanse=instanse;
    }
    public String getClient() {
      return this.client;
@@ -38,4 +40,13 @@
    public void setIpAddress(String ipAddress) {
      this.ipAddress = ipAddress;
    }
+
+	public String getInstanse() {
+		return instanse;
+	}
+
+	public void setInstanse(String instanse) {
+		this.instanse = instanse;
+	}
+   
  }
