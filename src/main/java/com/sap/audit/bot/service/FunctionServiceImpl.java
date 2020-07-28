@@ -120,9 +120,11 @@ import com.sap.conn.jco.JCoTable;
      Map<String, JCoTable> table = this.functionDao.getGRCTableByFunctionModule(loginUser, "/BOT/JAVA_0003N", data);
      List<Map<String, Object>> list = SapObjectToJavaConversion.getTableParameter(table.get("data"));
      List<Object> header = (List<Object>)SapObjectToJavaConversion.getTableParameter(table.get("header")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
+     List<Object> reportName = (List<Object>)SapObjectToJavaConversion.getTableParameter(table.get("E_REPORT")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
      ReportDTO dto = new ReportDTO();
      dto.setData(list);
      dto.setHeader(header);
+     dto.setReportName(reportName);
      return dto;
    }
 
@@ -148,9 +150,11 @@ public ReportDTO getLicenceReport(JwtUser loginUser, LicenceFilterDTO data) thro
     Map<String, JCoTable> table = this.functionDao.getLicenceTableByFunctionModule(loginUser, "/BOT/JAVA_0006", data);
     List<Map<String, Object>> list = SapObjectToJavaConversion.getTableParameterForLicence(table.get("data"));
     List<Object> header = (List<Object>)SapObjectToJavaConversion.getTableParameterForLicence(table.get("header")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
+    List<Object> reportName = (List<Object>)SapObjectToJavaConversion.getTableParameter(table.get("E_REPORT")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
     ReportDTO dto = new ReportDTO();
     dto.setData(list);
     dto.setHeader(header);
+    dto.setReportName(reportName);
     return dto;
 }
 
@@ -181,9 +185,11 @@ public ReportDTO getGRCRiskTechReport(JwtUser loginUser, FilterData data) throws
     Map<String, JCoTable> table = this.functionDao.getGRCRiskTechTableByFunctionModule(loginUser, "/BOT/JAVA_0004", data);
     List<Map<String, Object>> list = SapObjectToJavaConversion.getTableParameter(table.get("data"));
     List<Object> header = (List<Object>)SapObjectToJavaConversion.getTableParameter(table.get("header")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
+    List<Object> reportName = (List<Object>)SapObjectToJavaConversion.getTableParameter(table.get("E_REPORT")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
     ReportDTO dto = new ReportDTO();
     dto.setData(list);
     dto.setHeader(header);
+    dto.setReportName(reportName);
     return dto;
 }
 
@@ -244,11 +250,11 @@ public ReportDTO getSummaryControlReport(JwtUser loginUser, ControlFilterDTO dat
     Map<String, JCoTable> table = this.functionDao.getControlSummaryTableByFunctionModule(loginUser, "/BOT/JAVA_0008", data);
     List<Map<String, Object>> list = SapObjectToJavaConversion.getTableParameter(table.get("data"));
     List<Object> header = (List<Object>)SapObjectToJavaConversion.getTableParameter(table.get("header")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
-   // List<Object> reportName = (List<Object>)SapObjectToJavaConversion.getTableParameter(table.get("E_REPORT")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
+    List<Object> reportName = (List<Object>)SapObjectToJavaConversion.getTableParameter(table.get("E_REPORT")).stream().map(p -> p.get("ZDESC")).collect(Collectors.toList());
     ReportDTO dto = new ReportDTO();
     dto.setData(list);
     dto.setHeader(header);
-   // dto.setReportName(reportName);
+    dto.setReportName(reportName);
     return dto;
 }
 }

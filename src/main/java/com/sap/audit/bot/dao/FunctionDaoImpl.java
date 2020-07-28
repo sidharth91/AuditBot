@@ -234,6 +234,9 @@ public class FunctionDaoImpl implements FunctionDao {
 			JCoTable table = function.getTableParameterList().getTable("E_RESULT01");
 			map.put("data", table);
 		}
+		
+		JCoTable table2 = function.getTableParameterList().getTable("E_REPORT");
+		map.put("E_REPORT", table2);
 
 		return map;
 	}
@@ -311,6 +314,8 @@ public class FunctionDaoImpl implements FunctionDao {
 		tables.put("E_RESULT_02", table2);
 		JCoTable table3 = function.getTableParameterList().getTable("E_RESULT_03");
 		tables.put("E_RESULT_03", table3);
+		tables.put("header", function.getTableParameterList().getTable("E_HEADER"));
+		tables.put("E_REPORT", function.getTableParameterList().getTable("E_REPORT"));
 		return tables;
 	}
 
@@ -426,6 +431,7 @@ public class FunctionDaoImpl implements FunctionDao {
 		JCoTable table5 = function.getTableParameterList().getTable("E_RESULT_00");
 		tables.put("E_RESULT_00", table5);
 		tables.put("header", function.getTableParameterList().getTable("E_HEADER"));
+		tables.put("E_REPORT", function.getTableParameterList().getTable("E_REPORT"));
 		return tables;
 	}
 
@@ -534,6 +540,7 @@ public class FunctionDaoImpl implements FunctionDao {
 
 		JCoTable table = function.getTableParameterList().getTable("E_RESULT_01");
 		map.put("data", table);
+		map.put("E_REPORT", function.getTableParameterList().getTable("E_REPORT"));
 
 		return map;
 	}
@@ -637,6 +644,8 @@ public class FunctionDaoImpl implements FunctionDao {
 			}
 		}
 
+		
+		map.put("E_REPORT", function.getTableParameterList().getTable("E_REPORT"));
 		return map;
 	}
 
@@ -674,7 +683,8 @@ public class FunctionDaoImpl implements FunctionDao {
 		tables.put("E_RESULT_01", table1);
 		JCoTable table2 = function.getTableParameterList().getTable("E_RESULT_02");
 		tables.put("E_RESULT_02", table2);
-
+		tables.put("header", function.getTableParameterList().getTable("E_HEADER"));
+		tables.put("E_REPORT", function.getTableParameterList().getTable("E_REPORT"));
 		return tables;
 	}
 
@@ -745,7 +755,8 @@ public class FunctionDaoImpl implements FunctionDao {
 		
 		JCoTable table1 = function.getTableParameterList().getTable("E_RESULT_01");
 		tables.put("data", table1);
-
+		JCoTable table2 = function.getTableParameterList().getTable("E_REPORT");
+		tables.put("E_REPORT", table2);
 
 		return tables;
 	}
