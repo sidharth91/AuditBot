@@ -1,0 +1,1000 @@
+  693  ls
+  694  pm2 start npm
+  695  netstat -tupln
+  696  pm2 stop npm
+  697  ls
+  698  cd auditapp/
+  699  ls
+  700  cd auditbot/
+  701  pm2 start npm
+  702  ls
+  703  pm2 stop npm
+  704  pm2 delete npm 
+  705  ls
+  706  pm2 start npm -- start --name "auditbot"
+  707  ls
+  708  netstat -tupn
+  709  netstat -tupln
+  710  curl http://localhost:3000
+  711  ls
+  712  cd src
+  713  ls
+  714  cd Components/
+  715  ls
+  716  cd Login/
+  717  ls
+  718  vi Login.js 
+  719  cd ..
+  720  ls
+  721  cd ..
+  722  ls
+  723  cd Store/
+  724  ls
+  725  cd reducer/
+  726  ls
+  727  vi loginreducer.js 
+  728  cd ..
+  729  ls
+  730  cd actions/
+  731  ls
+  732  vi login.js
+  733  ls
+  734  grep ec2
+  735  greo 'ec2'
+  736  grep 'ec2'
+  737  cd ..
+  738  cd.
+  739  cd
+  740  ls
+  741  vi start.sh
+  742  cd auditapp/
+  743  ls
+  744  pwd
+  745  cd ..
+  746  ls
+  747  cd auditapp/
+  748  pwd
+  749  cd ..
+  750  ls
+  751  cd /home/ubuntu/auditapp
+  752  cd ..
+  753  vi start.sh 
+  754  ls
+  755  cd auditapp/
+  756  ls
+  757  cd auditbot/
+  758  ls
+  759  cd src/
+  760  ls
+  761  cd Store/
+  762  ls
+  763  cd actions/
+  764  ls
+  765  pwd
+  766  ls
+  767  clear
+  768  ls -ltr
+  769  more start.sh
+  770  sudo lsof -i -P -n | grep LISTEN
+  771  cd auditapp
+  772  ls
+  773  cd auditbot
+  774  ls
+  775  cd src
+  776  ls
+  777  cd Store
+  778  ls
+  779  cd actions
+  780  ls
+  781  more login.js
+  782  ls
+  783  more filter.js
+  784  grep "http" filter.js
+  785  clear
+  786  grep "http" filter.js
+  787  grep "http" login.js
+  788  cd
+  789  clear
+  790  grep "http" ./
+  791  grep "http" ./*
+  792  clear
+  793  grep man
+  794  man grep
+  795  ls
+  796  grep -i "http" /*
+  797  clear
+  798  cat `find ./auditbot -name  "*.css"` | grep "SR1"
+  799  cat `find ./  -name  "*.css"` | grep "SR1"
+  800  clear
+  801  ls -ltr
+  802  more start.sh
+  803  sudo lsof -i -P -n | grep LISTEN
+  804  cd auditapp
+  805  ls
+  806  cd auditbot
+  807  ls
+  808  cd src
+  809  ls
+  810  cd Store
+  811  ls
+  812  cd actions
+  813  ls
+  814  more login.js
+  815  ls
+  816  more filter.js
+  817  grep "http" filter.js
+  818  clear
+  819  grep "http" filter.js
+  820  grep "http" login.js
+  821  cd
+  822  clear
+  823  grep "http" ./
+  824  grep "http" ./*
+  825  clear
+  826  grep man
+  827  man grep
+  828  ls
+  829  grep -i "http" /*
+  830  clear
+  831  cat `find ./auditbot -name  "*.css"` | grep "SR1"
+  832  cat `find ./  -name  "*.css"` | grep "SR1"
+  833  ls
+  834  cat start.sh
+  835  cat * | grep "java"
+  836  cat /*
+  837  PuTTYPuTTY6cPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTY6cPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTY6cPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTY6cPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTY6cPuTTYPuTTYPuTTYPuTTY6cPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTY6cPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYPuTTY[A
+  838  clear
+  839  cat /* | grep -i "http"
+  840  ls
+  841  cd auditapp
+  842  ls
+  843  clear
+  844  ls -l
+  845  cat /auditapp/* | grep -i "http"
+  846  cat ./ | grep -i "http"
+  847  find ./ -name "*.css"
+  848  find ./ -name "*.css" | grep -i "font"
+  849  cat ./auditbot/node_modules/http-proxy/coverage/lcov-report/base.css
+  850  clear
+  851  find ./ -name "*.css" | cat | grep -i "chart"
+  852  cat `find ./ -name "*.css"` | grep -i "chart"
+  853  clear
+  854  cat `find ./ -name  *` | grep -i "chart"
+  855  ls
+  856  ls -l
+  857  cat `ls *.csv`
+  858  man cat
+  859  find ./ -name "SR1"
+  860  find ./ -name *
+  861  man find
+  862  clear
+  863  ls -l
+  864  cd auditbot
+  865  ls -l
+  866  cd src 
+  867  ls -l
+  868  cd ../public
+  869  ls -l
+  870  clear
+  871  cd ..
+  872  clear
+  873  find ./ -name "*.jar"
+  874  find ./ -name ".jar"
+  875  find ./ -name "*.JAR"
+  876  ls
+  877  ls -l
+  878  find ./ -name json
+  879  find ./ -name "*.json"
+  880  more ./node_modules/regjsgen/package.json
+  881  clear
+  882  ls
+  883  ls -l
+  884  cd src
+  885  ls -l
+  886  cd
+  887  ls -l
+  888  cd auditapp
+  889  l s-l
+  890  ls -l
+  891  clear
+  892  ls -l
+  893  find ./ -name "*.jar"
+  894  cd libs
+  895  ls -l
+  896  clear
+  897  ls -l
+  898  more xmlunit-core-2.6.2.jar
+  899  clear
+  900  more xmlunit-core-2.6.2.jar
+  901  vi xmlunit-core-2.6.2.jar
+  902  clear
+  903  vi xmlunit-core-2.6.2.jar
+  904  ls -ltr
+  905  ls -l
+  906  clear
+  907  cd
+  908  find ./ -name "*.jar"
+  909  clear
+  910  find ./ -name "*.jason"
+  911  find ./ -name "*.json"
+  912  more ./auditapp/auditbot/package.json
+  913  clear
+  914  find ./ -name "*.json" | cat
+  915  find ./ -name "*.json"
+  916  clear
+  917  cat `find ./ -name "*.json"` | grep -i "chart"
+  918  clear
+  919  cat `find ./ -name "*.js"` | grep -i "http"
+  920  find ./ -name "*.js"
+  921  more ./auditapp/auditbot/node_modules/normalize-path/index.js
+  922  cat `find ./ -name "*.js"` | grep -i "http"
+  923  cat `find ./ -name "*.js"` 
+  924  cat `find ./ -name "*.csv` | grep -i "sr1"
+  925  ls
+  926  cd auditapp
+  927  ls -l
+  928  cat `find ./ -name "*.csv` | grep -i "sr1"
+  929  cat clear
+  930  clear
+  931  ls -ltr
+  932  cd
+  933  ls -l
+  934  exit
+  935  clear
+  936  ls -ltr
+  937  cd auditapp
+  938  ls -ltr
+  939  netstat
+  940  clear
+  941  netstat -tulpn | grep LISTEN
+  942  ls -ltr
+  943  cd ..
+  944  ls -ltr
+  945  more start.sh
+  946  start.sh &
+  947  sh start.sh &
+  948  netstat -tulpn | grep LISTEN
+  949  pm2 show npm
+  950  clear
+  951  ls -ltr
+  952  more start.sh
+  953  netstat -tulpn | grep LISTEN
+  954  ls -ltr
+  955  cd auditapp
+  956  ls -ltr
+  957  tail -300 nohup.out
+  958  clear
+  959  netstat -tulpn | grep LISTEN
+  960  cd
+  961  clear
+  962  ls -ltr
+  963  start.sh
+  964  vi .profile
+  965  clear
+  966  .sh
+  967  . .sh
+  968  start.sh
+  969  vi start.sh
+  970  cp start.sh start_bak.sh
+  971  . ./bin/ksh
+  972  #!/bin/bash
+  973  start.sh
+  974  sh start.sh
+  975  netstat -tulpn | grep LISTEN
+  976  pm2 show npm
+  977  cat /home/ubuntu/.pm2/logs/npm-error.log
+  978  cat /home/ubuntu/.config
+  979  cd /home/ubuntu/.config
+  980  ls -ltr
+  981  clear
+  982  sl -ltr
+  983  cd
+  984  ls -ltr
+  985  cd auditapp
+  986  ls
+  987  ls -ltr
+  988  cd auditbot
+  989  ls -ltr
+  990  cd src
+  991  ls
+  992  cd Store
+  993  ls
+  994  cd actions
+  995  ls
+  996  clear
+  997  ls
+  998  more login.js
+  999  clear
+ 1000  ls 
+ 1001  grep -i "http" login.js
+ 1002  grep -i "http" *
+ 1003  cd
+ 1004  grep -i "http" *
+ 1005  grep -i "http" ./*
+ 1006  grep -i "http" auditapp/*
+ 1007  cd auditapp
+ 1008  ls -ltr
+ 1009  more  nohup.out
+ 1010  ls -ltr
+ 1011  rm nohup.out
+ 1012  ls -ltr
+ 1013  clear
+ 1014  ls -ltr
+ 1015  #!/bin/ksh
+ 1016  netstat -tulpn | grep LISTEN
+ 1017  netstat -tulpn
+ 1018  fuser 8080/tcp
+ 1019  kill -9 1335
+ 1020  fuser 8080/tcp
+ 1021  netstat -tulpn | grep LISTEN
+ 1022  clear
+ 1023  ls -ltr
+ 1024  cd
+ 1025  ls -ltr
+ 1026  vi start.sh
+ 1027  #!/bin/ksh
+ 1028  vi start.sh
+ 1029  more start.sh
+ 1030  vi .profile
+ 1031  start.sh
+ 1032  #!/bin/sh
+ 1033  start.sh
+ 1034  clear
+ 1035  netstat -tulpn 
+ 1036  sh start.sh
+ 1037  netstat -tulpn 
+ 1038  clear
+ 1039  ls -ltr
+ 1040  cd auditapp
+ 1041  ls -ltr
+ 1042  more nohup.out
+ 1043  clear
+ 1044  ls -ltr
+ 1045  more nohup.out
+ 1046  clear
+ 1047  netstat -tulpn | grep LIST
+ 1048  pm2 show npm
+ 1049  cd /home/ubuntu/.pm2/logs/
+ 1050  ls -ltr
+ 1051  clear
+ 1052  ls -ltr
+ 1053  rm npm-error.log
+ 1054  rm npm-out.log
+ 1055  cd
+ 1056  clear
+ 1057  cd auditapp
+ 1058  sh start.sh &
+ 1059  cd /home/ubuntu/.pm2/logs/
+ 1060  clear
+ 1061  ls -ltr
+ 1062  ls
+ 1063  ls -ltr
+ 1064  pm2 show npm
+ 1065  cd /home/ubuntu/.pm2/logs/
+ 1066  ls -ltr
+ 1067  touch npm-error.log
+ 1068  ls -ltr
+ 1069  touch npm-out.log 
+ 1070  ls -ltr
+ 1071  cd
+ 1072  clear
+ 1073  netstat -tulpn | grep LISTN
+ 1074  netstat -tulpn
+ 1075  cd
+ 1076  cd auditapp
+ 1077  start.sh
+ 1078  sh start.sh
+ 1079  ls -ltr
+ 1080  cd
+ 1081  clear
+ 1082  cd auditapp
+ 1083  ls -ltr
+ 1084  rm nohup.out
+ 1085  cd ..
+ 1086  clear
+ 1087  ls -ltr
+ 1088  sh start.sh
+ 1089  pm2 show npm
+ 1090  cd /home/ubuntu/.pm2/logs/
+ 1091  ls -ltr
+ 1092  clear
+ 1093  ls -ltr
+ 1094  more  npm-out.log
+ 1095  ls -ltr
+ 1096  clear
+ 1097  ls -ltr
+ 1098  ls -l
+ 1099  cd
+ 1100  cd auditapp
+ 1101  more nohup.out
+ 1102  grep -i 8080 *
+ 1103  grep -i 8080 auditapp/* | more
+ 1104  grep -i 8080 auditapp/* 
+ 1105  clear
+ 1106  ls -l
+ 1107  tail -500 dev_jco_rfc.trc
+ 1108  pm2 stop npm
+ 1109  pm2 start npm
+ 1110  pm2 show npm
+ 1111  clear
+ 1112  ls -ltr
+ 1113  clear
+ 1114  grep -r 8080 *
+ 1115  clear
+ 1116  grep -r 3000 *
+ 1117  clear
+ 1118  grep -ir http * |pg
+ 1119  grep -ir http * | more
+ 1120  clear
+ 1121  grep -ir 3000 | more
+ 1122  clear
+ 1123  grep -r "amazonaws.com" *
+ 1124  clear 
+ 1125  grep -r "amazonaws.com" * | more
+ 1126  clear
+ 1127  grep -r "amazonaws.com" * | more
+ 1128  clear
+ 1129  grep -r "3000" *.js | more
+ 1130  grep -r "3000" * | more
+ 1131  clear
+ 1132  ls -ltr
+ 1133  cat ../start.sh
+ 1134  netstat -tulpn 
+ 1135  kill -9 2209
+ 1136  netstat -tulpn 
+ 1137  nohup java -cp sapjcolib/sapjco3.jar:AuditBot-0.0.1-SNAPSHOT.jar com.sap.audit.bot.AuditBotApplication &
+ 1138  pm2 stop npm
+ 1139  npp more
+ 1140  pm2 stop npm
+ 1141  pm2 start npm
+ 1142  netstat -antp
+ 1143  clear
+ 1144  sudo ufw status
+ 1145  ls -ltr
+ 1146  clear
+ 1147  netstat
+ 1148  clear
+ 1149  pm2 show npm
+ 1150  cd /home/ubuntu/.pm2/logs/
+ 1151  ls -ltr
+ 1152  tail -1000 npm-out.log
+ 1153  ls -ltr
+ 1154  chmod 777 npm-error.log
+ 1155  ls -ltr
+ 1156  touch   npm-out.log
+ 1157  ls -ltr
+ 1158  rm  npm-out.log
+ 1159  touch npm-out.log
+ 1160  pm2 stop npm
+ 1161  pm2 start npm
+ 1162  ls -ltr
+ 1163  more  npm-out.log
+ 1164  cd
+ 1165  ls -ltr
+ 1166  cd auditapp
+ 1167  ls -ltr
+ 1168  more  ABAP_AS_WITHOUT_POOL.jcoDestination
+ 1169  ls -ltr
+ 1170  exit
+ 1171  clear
+ 1172  ls -ltr
+ 1173  cd auditapp
+ 1174  find ./ -name package.json
+ 1175  cd auditbot
+ 1176  ls -ltr
+ 1177  more  package.json
+ 1178  cd
+ 1179  cd auditapp
+ 1180  grep -ir "port" *
+ 1181  clear
+ 1182  ls
+ 1183  ls -ltr
+ 1184  cd auditbot
+ 1185  ls -ltr
+ 1186  more  package.json
+ 1187  grep -ir "PORT=3000" * 
+ 1188  ls -ltr
+ 1189  more  package-lock.json
+ 1190  clear
+ 1191  ls -ltr
+ 1192  more README.md
+ 1193  npm test
+ 1194  cd node_modules/react-dom/cjs/
+ 1195  ls -l /react-dom.development.js
+ 1196  ls
+ 1197  ls -l
+ 1198  more  react-dom-server.browser.development.js
+ 1199  ls -ltr
+ 1200  clear
+ 1201  ls
+ 1202  cd
+ 1203  clear
+ 1204  ls -l
+ 1205  cd auditapp
+ 1206  ls -l
+ 1207  cd  sapjcolib
+ 1208  ls
+ 1209  ls -l
+ 1210  more Readme.txt
+ 1211  clear
+ 1212  ls -l
+ 1213  cd
+ 1214  cd auditapp
+ 1215  ls -l
+ 1216  netstat -tul
+ 1217  cd ..
+ 1218  ls
+ 1219  more start.sh
+ 1220  cd /home/ubuntu/auditapp
+ 1221  rm nohup.out
+ 1222  nohup java -cp sapjcolib/sapjco3.jar:AuditBot-0.0.1-SNAPSHOT.jar com.sap.audit.bot.AuditBotApplication &
+ 1223  ls -ltr
+ 1224  more  nohup.out
+ 1225  netstat -tul
+ 1226  netstat -tulnm
+ 1227  netstat -tulpn | grep LISTEN
+ 1228  ping www.google.com
+ 1229  clear
+ 1230  ls -ltr
+ 1231  tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -
+ 1232  tcp6       0      0 :::8080                 :::*                    LISTEN      3236/java
+ 1233  tcp6       0      0 :::22                   :::*                    LISTEN      -
+ 1234  clear
+ 1235  ls -ltr
+ 1236  more  nohup.out
+ 1237  exit
+ 1238  clear
+ 1239  ls -ltr
+ 1240  netstat -tuln
+ 1241  sh  start.sh
+ 1242  pm2 show npm
+ 1243  cd /home/ubuntu/.pm2/logs/
+ 1244  ls -l
+ 1245  more npm-out.log
+ 1246  ls -ltr
+ 1247  cd
+ 1248  clear
+ 1249  cd auditapp
+ 1250  more nohup.out
+ 1251  clear
+ 1252  more start.sh
+ 1253  ls
+ 1254  cd ..
+ 1255  ls
+ 1256  more start.sh
+ 1257  cd auditapp
+ 1258  ls
+ 1259  ls -l
+ 1260  cd libs
+ 1261  ls 
+ 1262  clear
+ 1263  ls
+ 1264  grep "ec2-35-173-231-18" *
+ 1265  cd ..
+ 1266  ls
+ 1267  ls -l
+ 1268  cd auditbot
+ 1269  ls -l
+ 1270  more package.json
+ 1271  ls -l
+ 1272  cd src
+ 1273  ls
+ 1274  more app.js
+ 1275  ls -l
+ 1276  more app.js
+ 1277  more App.js
+ 1278  clear
+ 1279  cd
+ 1280  cd auditapp
+ 1281  grep -r "ec2-35-173-231-18" * | more
+ 1282  ls
+ 1283  cd auditbot
+ 1284  ls
+ 1285  cd src
+ 1286  ls
+ 1287  cd Store
+ 1288  ls
+ 1289  cd actions
+ 1290  ls
+ 1291  grep "ec2-35-173-231-18" login.js filter.js
+ 1292  vi login.js
+ 1293  cp login.js login_bak.js
+ 1294  cp filter.js filter_bak.js
+ 1295  ls -l
+ 1296  cd login.js
+ 1297  vi login.js
+ 1298  grep "ec2-35-173-231-18" login.js
+ 1299  grep "ec2-52-87-190-107" login.js
+ 1300  vi filter.js
+ 1301  clear
+ 1302  ls
+ 1303  grep "52-87" filter.js login.js
+ 1304  cd
+ 1305  clear
+ 1306  ls -ltr
+ 1307  sh start.sh
+ 1308  netstat -tul
+ 1309  netstat -tulpn | grep LISTEN
+ 1310  clear
+ 1311  netstat -tulpn | grep LISTEN
+ 1312  exit
+ 1313  ls -ltr
+ 1314  exit
+ 1315  java -version
+ 1316  clear
+ 1317  netstat -tsl
+ 1318  netstat -tulpn | grep LISTEN
+ 1319  clear
+ 1320  java help
+ 1321  netstat -tulpn | grep LISTEN
+ 1322  exit
+ 1323  ls
+ 1324  netstat -tupln
+ 1325  pm2 list
+ 1326  ls
+ 1327  cd auditapp/
+ 1328  ls
+ 1329  cd auditbot/
+ 1330  ls
+ 1331  cd src
+ 1332  ls
+ 1333  cd Store/
+ 1334  ls
+ 1335  cd actions/
+ 1336  ls
+ 1337  vi login.js 
+ 1338  vi filter.js 
+ 1339  cd
+ 1340  ls
+ 1341  pm2 start npm
+ 1342  pm2 list
+ 1343  pm2 show npm
+ 1344  pm2 logs npm
+ 1345  netstat -tupln
+ 1346  ls
+ 1347  cd auditapp/
+ 1348  ls
+ 1349  cd auditbot/
+ 1350  ls
+ 1351  npm start
+ 1352  curl http://localhost:8080/token
+ 1353  history
+ 1354  pm2 delete
+ 1355  pm2 list
+ 1356  pm2 start npm
+ 1357  pm2 list
+ 1358  ls
+ 1359  cd
+ 1360  ls
+ 1361  cd /pm2
+ 1362  cd /.pm2
+ 1363  cd etc
+ 1364  ls
+ 1365  cd /etc
+ 1366  ls
+ 1367  cd pm/
+ 1368  ls
+ 1369  cd ..
+ 1370  ls
+ 1371  find '.pm2'
+ 1372  pm2 monit
+ 1373  pm3 list
+ 1374  pm2 list
+ 1375  pm2 show npm
+ 1376  pm2 logs npm 
+ 1377  cd /home/ubuntu/.pm2/logs/
+ 1378  ls
+ 1379  vi npm-out.log 
+ 1380  vi npm-error.log 
+ 1381  pm2 start
+ 1382  ls
+ 1383  cd
+ 1384  cd auditapp/
+ 1385  ls
+ 1386  cd auditbot/
+ 1387  ls
+ 1388  netstat -tupln
+ 1389  ls
+ 1390  npm start
+ 1391  curl http://localhost:8080/token
+ 1392  pm2 start
+ 1393  pm2 delete npm
+ 1394  history
+ 1395  history|grep pm2
+ 1396  pm2 start npm -- start --name "auditbot"
+ 1397  pm2 list
+ 1398  netstat -tupln
+ 1399  ls
+ 1400  cd src
+ 1401  ls
+ 1402  cd Store
+ 1403  ls
+ 1404  cd actions/
+ 1405  ls
+ 1406  vi login.js 
+ 1407  vi login_bak.js 
+ 1408  vi login.js 
+ 1409  vi filter.js 
+ 1410  cd auditapp/
+ 1411  ls
+ 1412  cd auditbot/
+ 1413  ls
+ 1414  cd src
+ 1415  ls
+ 1416  cd Store/
+ 1417  ls
+ 1418  cd actions/
+ 1419  ls
+ 1420  vi filter.js 
+ 1421  ls
+ 1422  cd 
+ 1423  cd auditapp/
+ 1424  ls
+ 1425  cd auditbot/
+ 1426  ls
+ 1427  pm2 list
+ 1428  clear
+ 1429  ls -ltr
+ 1430  netstat -tuln
+ 1431  clear
+ 1432  top
+ 1433  netstat -tuln
+ 1434  ls
+ 1435  clear
+ 1436  cd auditapp
+ 1437  grep -r "ec2-52-87-190-107.compute-1.amazonaws.com" * | more
+ 1438  man grep
+ 1439  ls
+ 1440  ls -l
+ 1441  cd auditbot
+ 1442  cd ..
+ 1443  clear
+ 1444  find ./ -name *.js|more
+ 1445  clear
+ 1446  ls -ltr
+ 1447  exit
+ 1448  ls -l
+ 1449  ls -ltr
+ 1450  clear
+ 1451  history
+ 1452  exit
+ 1453  ls -ltr
+ 1454  clear
+ 1455  history
+ 1456  clear
+ 1457  netstat -tulpn
+ 1458  clear
+ 1459  ls -ltr
+ 1460  cd auditapp
+ 1461  ls
+ 1462  cd ..
+ 1463  ls
+ 1464  rm auditapp 
+ 1465  man rm
+ 1466  clear
+ 1467  ls -ltr
+ 1468  rm -f auditapp
+ 1469  rmdir auditapp
+ 1470  mkdir vel
+ 1471  ls -l
+ 1472  rmdir vel
+ 1473  ls
+ 1474  cd auditapp
+ 1475  ls -l
+ 1476  rm *
+ 1477  ls -ltr
+ 1478  cd libs
+ 1479  ls
+ 1480  rm *
+ 1481  cd ..
+ 1482  rmdir libs
+ 1483  ls
+ 1484  cd auditbot
+ 1485  ls
+ 1486  rm *
+ 1487  ls -ltr
+ 1488  cd
+ 1489  ls -ltr
+ 1490  rmdir auditapp
+ 1491  rmdir -r  auditapp
+ 1492  ls -ltr
+ 1493  clear
+ 1494  ls -l
+ 1495  rm -rf auditapp
+ 1496  clear
+ 1497  ls -ltr
+ 1498  cd  auditapp
+ 1499  ls
+ 1500  cd auditbot
+ 1501  ls
+ 1502  cd node_modules
+ 1503  ls -l
+ 1504  ls
+ 1505  clear
+ 1506  cd ..
+ 1507  ls
+ 1508  cd ..
+ 1509  ls
+ 1510  cd
+ 1511  ls
+ 1512  cat start.sh
+ 1513  mkdir auditsrc
+ 1514  ls -ltr
+ 1515  clear
+ 1516  ls -ltr
+ 1517  cat start.sh
+ 1518  rm start_bak.sh
+ 1519  ls -ltr
+ 1520  cat start.sh
+ 1521  clear
+ 1522  cd auditapp
+ 1523  ls
+ 1524  cd auditbot
+ 1525  ls
+ 1526  cd node_modules
+ 1527  ls
+ 1528  cd yargs
+ 1529  ls
+ 1530  ls -l
+ 1531  exit
+ 1532  ls
+ 1533  cd auditsrc/
+ 1534  ls
+ 1535  cd ..
+ 1536  ls
+ 1537  cd auditapp/
+ 1538  ls
+ 1539  apt-get update
+ 1540  sudo apt-get update
+ 1541  netstat -tupln
+ 1542  sudo apt install git
+ 1543  sudo apt-get install git
+ 1544  sudo dpkg --configure -a
+ 1545  sudo apt install git
+ 1546  git clone https://github.com/sidharth91/react-app.git
+ 1547  ls
+ 1548  cd ..
+ 1549  ls
+ 1550  cd auditsrc/
+ 1551  git clone https://github.com/sidharth91/react-app.git
+ 1552  ls
+ 1553  cd react-app/
+ 1554  ls
+ 1555  git checkout dev
+ 1556  git pull
+ 1557  git status
+ 1558  cd ..
+ 1559  ls
+ 1560  git clone https://github.com/sidharth91/AuditBot.git
+ 1561  ls
+ 1562  cd ..
+ 1563  ls
+ 1564  cd auditsrc/
+ 1565  ls
+ 1566  cd react-app/
+ 1567  git pull
+ 1568  ls
+ 1569  cd ..
+ 1570  ls
+ 1571  node -version
+ 1572  npm --version
+ 1573  cd
+ 1574  ls
+ 1575  cd auditsrc/react-app/
+ 1576  npm install
+ 1577  sudo npm install
+ 1578  ls
+ 1579  cd ..
+ 1580  ls
+ 1581  cd auditsrc/
+ 1582  ls
+ 1583  cd AuditBot/
+ 1584  ls
+ 1585  cd src/
+ 1586  ls
+ 1587  cd main/
+ 1588  ls
+ 1589  cd resources/
+ 1590  ls
+ 1591  cd ..
+ 1592  ls
+ 1593  cd resources/
+ 1594  ls
+ 1595  pwd
+ 1596  mkdir static
+ 1597  ls
+ 1598  cd
+ 1599  cd auditsrc/
+ 1600  ls
+ 1601  cd react-app/
+ 1602  ls
+ 1603  pwd
+ 1604  npm build
+ 1605  npm run  build
+ 1606  ls
+ 1607  cd build/
+ 1608  ls
+ 1609  cd static/
+ 1610  ls
+ 1611  cd ..
+ 1612  ls
+ 1613  cp -r . /home/ubuntu/auditsrc/AuditBot/src/main/resources/static/
+ 1614  cd
+ 1615  ls
+ 1616  cd auditsrc/
+ 1617  ls
+ 1618  cd AuditBot/
+ 1619  ls
+ 1620  cd src/
+ 1621  ls
+ 1622  cd main/
+ 1623  ls
+ 1624  cd resources/
+ 1625  ls
+ 1626  cd static/
+ 1627  ls
+ 1628  cd ..
+ 1629  ls
+ 1630  mvn clean install
+ 1631  sudo apt install maven
+ 1632  ls
+ 1633  java --version
+ 1634  java -version
+ 1635  ls
+ 1636  mvn clean install
+ 1637  ls
+ 1638  cd ..
+ 1639  ls
+ 1640  cd ..
+ 1641  ls
+ 1642  cd auditapp/
+ 1643  ls
+ 1644  cd auditbot/
+ 1645  ls
+ 1646  cd ..
+ 1647  ls
+ 1648  cd auditsrc/
+ 1649  ls
+ 1650  cd AuditBot/
+ 1651  ls
+ 1652  cd ..
+ 1653  ls
+ 1654  cd sapjco_linux/
+ 1655  pwd
+ 1656  cd ../AuditBot/
+ 1657  ls
+ 1658  vi pom.xml 
+ 1659  mvn clean install
+ 1660  ls
+ 1661  cd target/
+ 1662  ls
+ 1663  nohup java -cp /home/ubuntu/auditsrc/sapjco_linux/sapjco3.jar/sapjco3.jar:AuditBot-0.0.1-SNAPSHOT.jar com.sap.audit.bot.AuditBotApplication &
+ 1664  nesttat -tupln
+ 1665  java -cp /home/ubuntu/auditsrc/sapjco_linux/sapjco3.jar/sapjco3.jar:AuditBot-0.0.1-SNAPSHOT.jar com.sap.audit.bot.AuditBotApplication 
+ 1666  java -cp /home/ubuntu/auditsrc/sapjco_linux/sapjco3.jar/sapjco3.jar;AuditBot-0.0.1-SNAPSHOT.jar com.sap.audit.bot.AuditBotApplication 
+ 1667  java -cp /home/ubuntu/auditsrc/sapjco_linux/sapjco3.jar/sapjco3.jar:AuditBot-0.0.1-SNAPSHOT.jar com.sap.audit.bot.AuditBotApplication 
+ 1668  java -cp /home/ubuntu/auditsrc/sapjco_linux/sapjco3.jar:AuditBot-0.0.1-SNAPSHOT.jar com.sap.audit.bot.AuditBotApplication 
+ 1669  ls
+ 1670  cd ..
+ 1671  ls
+ 1672  cd ..
+ 1673  ls
+ 1674  pwd
+ 1675  cd AuditBot/
+ 1676  ls
+ 1677  cd src
+ 1678  ls
+ 1679  cd main/
+ 1680  ls
+ 1681  cd resources/
+ 1682  ls
+ 1683  vi application.properties 
+ 1684  cd ..
+ 1685  mvn clean install
+ 1686  cd target/
+ 1687  ls
+ 1688  java -cp /home/ubuntu/auditsrc/sapjco_linux/sapjco3.jar:AuditBot-0.0.1-SNAPSHOT.jar com.sap.audit.bot.AuditBotApplication 
+ 1689  nohup java -cp /home/ubuntu/auditsrc/sapjco_linux/sapjco3.jar:AuditBot-0.0.1-SNAPSHOT.jar com.sap.audit.bot.AuditBotApplication &
+ 1690  netstat -tupln
+ 1691  history
+ 1692  history >a.txt
