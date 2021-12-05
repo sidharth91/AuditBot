@@ -17,10 +17,6 @@ public class DestinationConfig
 {
   @Value("${jco.client.sysnr}")
   private String JCO_SYSNR;
-  @Value("${jco.client.user}")
-  private String JCO_USER;
-  @Value("${jco.client.passwd}")
-  private String JCO_PASSWD;
   @Value("${jco.client.lang}")
   private String JCO_LANG;
   @Value("${system.config.path}")
@@ -40,22 +36,6 @@ public class DestinationConfig
     this.JCO_SYSNR = jCO_SYSNR;
   }
 
-  
-  public String getJCO_USER() {
-    return this.JCO_USER;
-  }
-  
-  public void setJCO_USER(String jCO_USER) {
-    this.JCO_USER = jCO_USER;
-  }
-  
-  public String getJCO_PASSWD() {
-    return this.JCO_PASSWD;
-  }
-  
-  public void setJCO_PASSWD(String jCO_PASSWD) {
-    this.JCO_PASSWD = jCO_PASSWD;
-  }
   
   public String getJCO_LANG() {
     return this.JCO_LANG;
